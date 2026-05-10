@@ -1,0 +1,364 @@
+/* --- BASE & OPTIMIZATION --- */
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+body { 
+    font-family: 'Open Sans', sans-serif; 
+    background: #0a0a0a; 
+    color: white; 
+    overflow-x: hidden; 
+}
+
+/* --- NAVIGATION --- */
+nav { 
+    width: 100%; 
+    padding: 15px; 
+    position: fixed; 
+    top: 0; 
+    background: rgba(0,0,0,0.8); 
+    z-index: 1000; 
+    display: flex; 
+    justify-content: center; 
+    backdrop-filter: blur(10px); 
+}
+.nav-container { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
+    max-width: 1200px; 
+}
+nav ul { display: flex; list-style: none; gap: 20px; }
+nav ul a { 
+    color: #fff; 
+    text-decoration: none; 
+    font-size: 10px; 
+    font-weight: 700; 
+    opacity: 0.6; 
+    transition: 0.3s; 
+}
+nav ul a:hover { opacity: 1; }
+
+/* --- HERO SECTION --- */
+header { 
+    height: 100vh; 
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://files.catbox.moe/oevw9y.jpg') center/cover; 
+    background-attachment: fixed; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+}
+.logo-wrapper { 
+    width: 150px; 
+    height: 150px; 
+    margin: 0 auto 20px; 
+    border: 3px solid #fff; 
+    border-radius: 50%; 
+    padding: 5px; 
+}
+.rotating-logo { 
+    width: 100%; 
+    height: 100%; 
+    border-radius: 50%; 
+    animation: spin 20s linear infinite; 
+}
+@keyframes spin { from {transform: rotate(0deg);} to {transform: rotate(360deg);} }
+h1 { 
+    font-family: 'Montserrat'; 
+    letter-spacing: 4px; 
+    font-size: clamp(2rem, 5vw, 3.5rem); 
+}
+
+/* --- STRUCTURE & GRID --- */
+.page-section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
+.alt-bg { background: #0d0d0d; max-width: 100%; }
+.section-title { 
+    font-family: 'Montserrat'; 
+    letter-spacing: 3px; 
+    margin-bottom: 50px; 
+    border-bottom: 2px solid #fff; 
+    display: inline-block; 
+}
+
+/* ORG CHART */
+.org-chart { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.chart-row { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.connector { width: 2px; height: 30px; background: rgba(255,255,255,0.2); }
+
+/* MEMBER CARDS */
+.members-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 20px; 
+}
+.member-item { 
+    background: #141414; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    border: 1px solid #222; 
+    transition: 0.3s; 
+    position: relative; 
+}
+.member-item:hover { 
+    border-color: #fff; 
+    transform: translateY(-5px); 
+}
+.member-photo { height: 280px; background: #1a1a1a; }
+
+/* FOTO BERWARNA (GrayScale Dihapus) */
+.member-photo img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    filter: none; /* Warna asli aktif */
+    transition: 0.4s; 
+}
+.member-item:hover .member-photo img { 
+    transform: scale(1.05); /* Efek zoom sedikit saat hover */
+}
+
+.member-info { padding: 15px; text-align: left; }
+.member-info h4 { font-size: 13px; text-transform: uppercase; }
+.role-label { font-size: 9px; opacity: 0.5; font-weight: 700; }
+.absent-no { 
+    position: absolute; 
+    top: 10px; 
+    right: 10px; 
+    font-size: 1.5rem; 
+    font-weight: 900; 
+    opacity: 0.1; 
+}
+
+/* --- IG STYLE --- */
+.ig-link { 
+    display: flex; 
+    align-items: center; 
+    gap: 5px; 
+    text-decoration: none; 
+    color: #fff; 
+    font-size: 11px; 
+    margin-top: 5px; 
+    opacity: 0.7; 
+}
+.ig-icon-real { width: 14px; height: 14px; }
+
+/* --- GALLERY --- */
+.gallery-masonry { columns: 3 250px; column-gap: 15px; }
+.gallery-item { 
+    margin-bottom: 15px; 
+    break-inside: avoid; 
+    border-radius: 8px; 
+    overflow: hidden; 
+    cursor: pointer; 
+    border: 1px solid #222; 
+    transition: 0.3s;
+}
+.gallery-item:hover { border-color: #fff; }
+
+/* FOTO GALLERY BERWARNA */
+.gallery-item img { 
+    width: 100%; 
+    display: block; 
+    filter: brightness(0.9); /* Sedikit gelap agar teks terbaca, terang saat hover */
+    transition: 0.4s; 
+}
+.gallery-item:hover img { 
+    filter: brightness(1); 
+    transform: scale(1.02);
+}
+
+/* --- FOOTER & MODAL --- */
+footer { 
+    padding: 50px 20px; 
+    background: #050505; 
+    text-align: center; 
+    border-top: 1px solid #111; 
+}
+.modal { 
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.95); 
+    align-items: center; 
+    justify-content: center; 
+}
+.modal-content { 
+    max-width: 90%; 
+    max-height: 85%; 
+    border-radius: 5px; 
+    border: 1px solid #333;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) { 
+    .members-grid { grid-template-columns: repeat(2, 1fr); } 
+}
+/* --- PHOTO PROTECTION --- */
+
+/* Mencegah gambar diklik kanan dan di-drag */
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-select: none;
+    pointer-events: none; /* Opsional: Benar-benar mematikan klik pada gambar */
+}
+
+/* Lapisan pelindung transparan di atas foto anggota & gallery */
+.member-photo, .gallery-item {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Teknik Overlay: Menaruh lapisan "hantu" sehingga saat diklik kanan, 
+   yang tersimpan bukan gambarnya */
+.member-photo::after, .gallery-item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background: rgba(0,0,0,0); /* Transparan */
+}
+
+/* Memastikan modal foto juga terproteksi */
+.modal-content {
+    -webkit-user-drag: none;
+    user-select: none;
+}
+/* --- BASE & PROTECT (Tetap Sama) --- */
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+body { font-family: 'Open Sans', sans-serif; background: #0a0a0a; color: white; overflow-x: hidden; user-select: none; }
+
+/* Proteksi Gambar & Video */
+img, video { 
+    -webkit-user-drag: none; 
+    pointer-events: none; 
+    user-select: none; 
+    filter: none !important; 
+}
+
+/* --- GRID & GALLERY (Pertahankan Tampilan) --- */
+.gallery-masonry { columns: 3 250px; column-gap: 15px; }
+.gallery-item { 
+    margin-bottom: 15px; 
+    break-inside: avoid; 
+    border-radius: 8px; 
+    overflow: hidden; 
+    cursor: pointer; 
+    border: 1px solid #222; 
+    position: relative; /* Penting untuk icon play */
+    background: #000; 
+}
+
+.gallery-item img, .gallery-item video { 
+    width: 100%; 
+    display: block; 
+    transition: 0.4s; 
+    opacity: 0.9; 
+}
+
+/* Icon Play khusus untuk Video */
+.play-icon { 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    color: white; 
+    font-size: 2.5rem; 
+    z-index: 6; 
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+/* --- MODAL (Update untuk Video) --- */
+.modal { 
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.95); 
+    align-items: center; 
+    justify-content: center; 
+}
+.modal-content-wrapper { width: 90%; max-width: 1000px; display: flex; justify-content: center; }
+.modal-content-wrapper img, .modal-content-wrapper video { 
+    max-width: 100%; 
+    max-height: 85vh; 
+    border-radius: 8px; 
+    pointer-events: auto; /* Agar video bisa di-pause */
+}
+/* --- BASE & PROTECT (Tetap Sama) --- */
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+body { font-family: 'Open Sans', sans-serif; background: #0a0a0a; color: white; overflow-x: hidden; user-select: none; }
+
+/* Proteksi Gambar & Video */
+img, video { 
+    -webkit-user-drag: none; 
+    pointer-events: none; 
+    user-select: none; 
+    filter: none !important; 
+}
+
+/* --- GRID & GALLERY (Pertahankan Tampilan) --- */
+.gallery-masonry { columns: 3 250px; column-gap: 15px; }
+.gallery-item { 
+    margin-bottom: 15px; 
+    break-inside: avoid; 
+    border-radius: 8px; 
+    overflow: hidden; 
+    cursor: pointer; 
+    border: 1px solid #222; 
+    position: relative; /* Penting untuk icon play */
+    background: #000; 
+}
+
+.gallery-item img, .gallery-item video { 
+    width: 100%; 
+    display: block; 
+    transition: 0.4s; 
+    opacity: 0.9; 
+}
+
+/* Icon Play khusus untuk Video */
+.play-icon { 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    color: white; 
+    font-size: 2.5rem; 
+    z-index: 6; 
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+/* --- MODAL (Update untuk Video) --- */
+.modal { 
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.95); 
+    align-items: center; 
+    justify-content: center; 
+}
+.modal-content-wrapper { width: 90%; max-width: 1000px; display: flex; justify-content: center; }
+.modal-content-wrapper img, .modal-content-wrapper video { 
+    max-width: 100%; 
+    max-height: 85vh; 
+    border-radius: 8px; 
+    pointer-events: auto; /* Agar video bisa di-pause */
+}

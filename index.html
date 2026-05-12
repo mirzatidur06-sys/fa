@@ -164,7 +164,17 @@
     <section id="gallery" class="page-section alt-bg">
         <h2 class="section-title">GALLERY MEMORIES</h2>
         <div class="gallery-masonry" id="gallery-container"></div>
-        <button id="loadMoreBtn" class="btn-load-more" onclick="renderGallery()">LOAD MORE PHOTOS</button>
+        
+        <!-- Container Tombol Kontrol -->
+        <div style="text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 30px;">
+            <button id="loadMoreBtn" class="btn-load-more" onclick="renderGallery()" style="margin: 0;">LOAD MORE PHOTOS</button>
+            
+            <!-- Tombol Load All -->
+            <button id="loadAllBtn" class="btn-load-more" onclick="renderAllGallery()" 
+                    style="background: #ff4d4d; color: white; font-size: 11px; margin: 0; padding: 8px 20px;">
+                LOAD ALL PICTURES (Risiko Lag)
+            </button>
+        </div>
     </section>
 
     <footer>
@@ -241,125 +251,47 @@
                 </div>`;
         });
 
-const galleryList = [
-    "https://files.catbox.moe/ijdltk.jpeg",
-    "https://files.catbox.moe/z7u8ue.jpeg",
-    "https://files.catbox.moe/ani541.jpeg",
-    "https://files.catbox.moe/dfqiya.jpeg",
-    "https://files.catbox.moe/q37v55.jpeg",
-    "https://files.catbox.moe/94rfsc.jpeg",
-    "https://files.catbox.moe/jf33jq.jpeg",
-    "https://files.catbox.moe/jxp3jc.jpeg",
-    "https://files.catbox.moe/hp7i1z.jpeg",
-    "https://files.catbox.moe/pjdpja.jpeg",
-    "https://files.catbox.moe/cokyvw.jpeg",
-    "https://files.catbox.moe/j4sfed.jpeg",
-    "https://files.catbox.moe/p7dlef.jpeg",
-    "https://files.catbox.moe/udv48t.jpeg",
-    "https://files.catbox.moe/1a9f8z.jpeg",
-    "https://files.catbox.moe/ktsmpv.jpeg",
-    "https://files.catbox.moe/ahdx9e.jpeg",
-    "https://files.catbox.moe/xxikix.jpeg",
-    "https://files.catbox.moe/2oralj.jpeg",
-    "https://files.catbox.moe/ol9ibz.jpeg",
-    "https://files.catbox.moe/vmuxf9.jpeg",
-    "https://files.catbox.moe/75cpdt.jpeg",
-    "https://files.catbox.moe/8tz381.jpeg",
-    "https://files.catbox.moe/86xwe1.jpeg",
-    "https://files.catbox.moe/urmyec.jpeg",
-    "https://files.catbox.moe/tvhggh.jpeg",
-    "https://files.catbox.moe/6m7yfc.jpeg",
-    "https://files.catbox.moe/nzlezq.jpeg",
-    "https://files.catbox.moe/g4mfrb.jpeg",
-    "https://files.catbox.moe/mucl9n.jpeg",
-    "https://files.catbox.moe/tfm3ie.jpeg",
-    "https://files.catbox.moe/03t3ec.jpeg",
-    "https://files.catbox.moe/n9gweb.jpeg",
-    "https://files.catbox.moe/vjlpjz.jpeg",
-    "https://files.catbox.moe/i98znw.jpeg",
-    "https://files.catbox.moe/ifmc3g.jpeg",
-    "https://files.catbox.moe/2383vg.jpeg",
-    "https://files.catbox.moe/2dtyd4.jpeg",
-    "https://files.catbox.moe/ljobbi.jpeg",
-    "https://files.catbox.moe/090ztn.jpeg",
-    "https://files.catbox.moe/ab3cpy.jpeg",
-    "https://files.catbox.moe/4jlilt.jpeg",
-    "https://files.catbox.moe/3latyf.jpeg",
-    "https://files.catbox.moe/lsamic.jpeg",
-    "https://files.catbox.moe/bvbmtf.jpeg",
-    "https://files.catbox.moe/1bg4fy.jpeg",
-    "https://files.catbox.moe/ujl784.jpeg",
-    "https://files.catbox.moe/o30abb.jpeg",
-    "https://files.catbox.moe/dam6r3.jpeg",
-    "https://files.catbox.moe/vfrlw6.jpeg",
-    "https://files.catbox.moe/ybmk16.jpeg",
-    "https://files.catbox.moe/wcrlos.jpeg",
-    "https://files.catbox.moe/d31we1.jpeg",
-    "https://files.catbox.moe/i8dht9.jpeg",
-    "https://files.catbox.moe/fburxc.jpeg",
-    "https://files.catbox.moe/ocy59w.jpeg",
-    "https://files.catbox.moe/cly552.jpeg",
-    "https://files.catbox.moe/r24nm5.jpeg",
-    "https://files.catbox.moe/ho3li1.jpeg",
-    "https://files.catbox.moe/8jck6d.mp4",
-    "https://files.catbox.moe/k0wu1c.mp4",
-    "https://files.catbox.moe/9htsum.mp4",
-    "https://files.catbox.moe/z48pdj.mp4",
-    "https://files.catbox.moe/72pmba.mp4",
-    "https://files.catbox.moe/gp8bo1.mp4",
-    "https://files.catbox.moe/onjnue.mp4",
-    "https://files.catbox.moe/4mrnm1.jpeg",
-    "https://files.catbox.moe/bn9k86.mp4",
-    "https://files.catbox.moe/a0kv0d.mp4",
-    "https://files.catbox.moe/ms5zeu.mp4",
-    "https://files.catbox.moe/63pfxi.jpeg",
-    "https://files.catbox.moe/3rnsld.jpeg",
-    "https://files.catbox.moe/dltezx.jpeg",
-    "https://files.catbox.moe/p7pvs7.jpeg",
-    "https://files.catbox.moe/wcvo3a.jpeg",
-    "https://files.catbox.moe/1c7bdt.jpeg",
-    "https://files.catbox.moe/j9ntof.jpeg",
-    "https://files.catbox.moe/7emlu5.jpeg",
-    "https://files.catbox.moe/zixeba.jpeg",
-    "https://files.catbox.moe/bj9o2m.jpeg",
-    "https://files.catbox.moe/3s8j2y.jpeg",
-    "https://files.catbox.moe/g1dxsd.jpeg",
-    "https://files.catbox.moe/mo41uz.jpeg",
-    "https://files.catbox.moe/nqmvo2.jpeg",
-    "https://files.catbox.moe/tv9r80.jpeg",
-    "https://files.catbox.moe/hbpcrg.jpeg",
-    "https://files.catbox.moe/uq8a33.jpeg",
-    "https://files.catbox.moe/sx8st3.jpeg",
-    "https://files.catbox.moe/wq1nls.jpeg",
-    "https://files.catbox.moe/i18ty3.jpeg",
-    "https://files.catbox.moe/25ggye.jpeg",
-    "https://files.catbox.moe/e0hned.jpeg",
-    "https://files.catbox.moe/akj5gq.jpeg",
-    "https://files.catbox.moe/k2w4gk.jpeg",
-    "https://files.catbox.moe/dlb7py.jpeg",
-    "https://files.catbox.moe/g58j73.jpeg",
-    "https://files.catbox.moe/f2gpcp.jpeg",
-    "https://files.catbox.moe/pwufiq.jpeg",
-    "https://files.catbox.moe/u0wqgk.jpeg",
-    "https://files.catbox.moe/q1l6rt.jpeg",
-    "https://files.catbox.moe/dh5jo2.mp4",
-    "https://files.catbox.moe/jr23zc.mp4",
-    "https://files.catbox.moe/o7qzhg.mp4",
-    "https://files.catbox.moe/3984a0.mp4",
-    "https://files.catbox.moe/t0mo71.mp4",
-    "https://files.catbox.moe/5q1zlm.jpeg",
-    "https://files.catbox.moe/z5y685.jpg",
-    "https://files.catbox.moe/2jovr3.JPG",
-    "https://files.catbox.moe/jw924c.jpeg",
-    "https://files.catbox.moe/yq6fj3.jpeg",
-    "https://files.catbox.moe/a9edsb.jpeg",
-    "https://files.catbox.moe/kznskt.mp4",
-    "https://files.catbox.moe/jvqwqj.mp4",
-    "https://files.catbox.moe/9m8c26.jpeg",
-    "https://files.catbox.moe/yfv8gs.jpeg",
-    "https://files.catbox.moe/hk5upu.jpeg",
-    "https://files.catbox.moe/wkoepf.mp4"
-];
+        const galleryList = [
+            "https://files.catbox.moe/ijdltk.jpeg", "https://files.catbox.moe/z7u8ue.jpeg", "https://files.catbox.moe/ani541.jpeg",
+            "https://files.catbox.moe/dfqiya.jpeg", "https://files.catbox.moe/q37v55.jpeg", "https://files.catbox.moe/94rfsc.jpeg",
+            "https://files.catbox.moe/jf33jq.jpeg", "https://files.catbox.moe/jxp3jc.jpeg", "https://files.catbox.moe/hp7i1z.jpeg",
+            "https://files.catbox.moe/pjdpja.jpeg", "https://files.catbox.moe/cokyvw.jpeg", "https://files.catbox.moe/j4sfed.jpeg",
+            "https://files.catbox.moe/p7dlef.jpeg", "https://files.catbox.moe/udv48t.jpeg", "https://files.catbox.moe/1a9f8z.jpeg",
+            "https://files.catbox.moe/ktsmpv.jpeg", "https://files.catbox.moe/ahdx9e.jpeg", "https://files.catbox.moe/xxikix.jpeg",
+            "https://files.catbox.moe/2oralj.jpeg", "https://files.catbox.moe/ol9ibz.jpeg", "https://files.catbox.moe/vmuxf9.jpeg",
+            "https://files.catbox.moe/75cpdt.jpeg", "https://files.catbox.moe/8tz381.jpeg", "https://files.catbox.moe/86xwe1.jpeg",
+            "https://files.catbox.moe/urmyec.jpeg", "https://files.catbox.moe/tvhggh.jpeg", "https://files.catbox.moe/6m7yfc.jpeg",
+            "https://files.catbox.moe/nzlezq.jpeg", "https://files.catbox.moe/g4mfrb.jpeg", "https://files.catbox.moe/mucl9n.jpeg",
+            "https://files.catbox.moe/tfm3ie.jpeg", "https://files.catbox.moe/03t3ec.jpeg", "https://files.catbox.moe/n9gweb.jpeg",
+            "https://files.catbox.moe/vjlpjz.jpeg", "https://files.catbox.moe/i98znw.jpeg", "https://files.catbox.moe/ifmc3g.jpeg",
+            "https://files.catbox.moe/2383vg.jpeg", "https://files.catbox.moe/2dtyd4.jpeg", "https://files.catbox.moe/ljobbi.jpeg",
+            "https://files.catbox.moe/090ztn.jpeg", "https://files.catbox.moe/ab3cpy.jpeg", "https://files.catbox.moe/4jlilt.jpeg",
+            "https://files.catbox.moe/3latyf.jpeg", "https://files.catbox.moe/lsamic.jpeg", "https://files.catbox.moe/bvbmtf.jpeg",
+            "https://files.catbox.moe/1bg4fy.jpeg", "https://files.catbox.moe/ujl784.jpeg", "https://files.catbox.moe/o30abb.jpeg",
+            "https://files.catbox.moe/dam6r3.jpeg", "https://files.catbox.moe/vfrlw6.jpeg", "https://files.catbox.moe/ybmk16.jpeg",
+            "https://files.catbox.moe/wcrlos.jpeg", "https://files.catbox.moe/d31we1.jpeg", "https://files.catbox.moe/i8dht9.jpeg",
+            "https://files.catbox.moe/fburxc.jpeg", "https://files.catbox.moe/ocy59w.jpeg", "https://files.catbox.moe/cly552.jpeg",
+            "https://files.catbox.moe/r24nm5.jpeg", "https://files.catbox.moe/ho3li1.jpeg", "https://files.catbox.moe/8jck6d.mp4",
+            "https://files.catbox.moe/k0wu1c.mp4", "https://files.catbox.moe/9htsum.mp4", "https://files.catbox.moe/z48pdj.mp4",
+            "https://files.catbox.moe/72pmba.mp4", "https://files.catbox.moe/gp8bo1.mp4", "https://files.catbox.moe/onjnue.mp4",
+            "https://files.catbox.moe/4mrnm1.jpeg", "https://files.catbox.moe/bn9k86.mp4", "https://files.catbox.moe/a0kv0d.mp4",
+            "https://files.catbox.moe/ms5zeu.mp4", "https://files.catbox.moe/63pfxi.jpeg", "https://files.catbox.moe/3rnsld.jpeg",
+            "https://files.catbox.moe/dltezx.jpeg", "https://files.catbox.moe/p7pvs7.jpeg", "https://files.catbox.moe/wcvo3a.jpeg",
+            "https://files.catbox.moe/1c7bdt.jpeg", "https://files.catbox.moe/j9ntof.jpeg", "https://files.catbox.moe/7emlu5.jpeg",
+            "https://files.catbox.moe/zixeba.jpeg", "https://files.catbox.moe/bj9o2m.jpeg", "https://files.catbox.moe/3s8j2y.jpeg",
+            "https://files.catbox.moe/g1dxsd.jpeg", "https://files.catbox.moe/mo41uz.jpeg", "https://files.catbox.moe/nqmvo2.jpeg",
+            "https://files.catbox.moe/tv9r80.jpeg", "https://files.catbox.moe/hbpcrg.jpeg", "https://files.catbox.moe/uq8a33.jpeg",
+            "https://files.catbox.moe/sx8st3.jpeg", "https://files.catbox.moe/wq1nls.jpeg", "https://files.catbox.moe/i18ty3.jpeg",
+            "https://files.catbox.moe/25ggye.jpeg", "https://files.catbox.moe/e0hned.jpeg", "https://files.catbox.moe/akj5gq.jpeg",
+            "https://files.catbox.moe/k2w4gk.jpeg", "https://files.catbox.moe/dlb7py.jpeg", "https://files.catbox.moe/g58j73.jpeg",
+            "https://files.catbox.moe/f2gpcp.jpeg", "https://files.catbox.moe/pwufiq.jpeg", "https://files.catbox.moe/u0wqgk.jpeg",
+            "https://files.catbox.moe/q1l6rt.jpeg", "https://files.catbox.moe/dh5jo2.mp4", "https://files.catbox.moe/jr23zc.mp4",
+            "https://files.catbox.moe/o7qzhg.mp4", "https://files.catbox.moe/3984a0.mp4", "https://files.catbox.moe/t0mo71.mp4",
+            "https://files.catbox.moe/5q1zlm.jpeg", "https://files.catbox.moe/z5y685.jpg", "https://files.catbox.moe/2jovr3.JPG",
+            "https://files.catbox.moe/jw924c.jpeg", "https://files.catbox.moe/yq6fj3.jpeg", "https://files.catbox.moe/a9edsb.jpeg",
+            "https://files.catbox.moe/kznskt.mp4", "https://files.catbox.moe/jvqwqj.mp4", "https://files.catbox.moe/9m8c26.jpeg",
+            "https://files.catbox.moe/yfv8gs.jpeg", "https://files.catbox.moe/hk5upu.jpeg", "https://files.catbox.moe/wkoepf.mp4"
+        ];
         
         let currentIdx = 0;
         const itemsPerLoad = 10;
@@ -377,7 +309,33 @@ const galleryList = [
                 gContainer.innerHTML += html;
             }
             currentIdx = limit;
-            if (currentIdx >= galleryList.length) document.getElementById('loadMoreBtn').style.display = 'none';
+            if (currentIdx >= galleryList.length) {
+                document.getElementById('loadMoreBtn').style.display = 'none';
+                document.getElementById('loadAllBtn').style.display = 'none';
+            }
+        }
+
+        // Fungsi Baru: Memuat SEMUA foto/video
+        function renderAllGallery() {
+            const confirmation = confirm("PERINGATAN: Memuat 100+ media sekaligus dapat menghabiskan kuota data dan menyebabkan browser Anda melambat (lag). Lanjutkan?");
+            
+            if (confirmation) {
+                const gContainer = document.getElementById('gallery-container');
+                const loadMoreBtn = document.getElementById('loadMoreBtn');
+                const loadAllBtn = document.getElementById('loadAllBtn');
+
+                for (let i = currentIdx; i < galleryList.length; i++) {
+                    const s = galleryList[i];
+                    const isVid = s.toLowerCase().endsWith('.mp4');
+                    const html = isVid ? 
+                        `<div class="gallery-item" onclick="openMedia('${s}', true)"><video src="${s}" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;"></video><div class="play-icon-overlay"><i class="fas fa-play-circle"></i></div></div>` :
+                        `<div class="gallery-item" onclick="openMedia('${s}', false)"><img src="${s}" loading="lazy"></div>`;
+                    gContainer.innerHTML += html;
+                }
+                currentIdx = galleryList.length;
+                loadMoreBtn.style.display = 'none';
+                loadAllBtn.style.display = 'none';
+            }
         }
 
         function openMedia(src, isVid) {

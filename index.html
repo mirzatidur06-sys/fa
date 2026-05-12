@@ -13,7 +13,6 @@
         document.onkeydown = (e) => { if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73)) return false; };
     </script>
     <style>
-        /* Menjaga visual tetap asli tapi support video & auto-layout */
         .gallery-masonry {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -24,7 +23,9 @@
             position: relative;
             overflow: hidden;
             background: #111;
-            height: 220px; /* Menjaga konsistensi kotak */
+            height: 220px;
+            content-visibility: auto;
+            contain-intrinsic-size: 220px;
         }
         .gallery-item img, .gallery-item video { 
             width: 100%; 
@@ -35,20 +36,44 @@
         .play-icon-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 2rem; opacity: 0.7; pointer-events: none; }
         .modal-content-wrapper { position: relative; width: 90%; max-width: 800px; margin: auto; display: flex; align-items: center; justify-content: center; height: 100%; }
         .modal-content-wrapper img, .modal-content-wrapper video { max-width: 100%; max-height: 80vh; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+        
+        .btn-load-more {
+            display: block;
+            margin: 30px auto;
+            padding: 12px 30px;
+            background: #fff;
+            color: #000;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-load-more:hover { transform: scale(1.05); background: #ddd; }
+        
+        #about { padding: 100px 20px; background: #000; text-align: center; }
+        .about-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
 
-    <audio id="myAudio" loop preload="none">
-        <source src="https://files.catbox.moe/h9gsti.mp4" type="audio/mpeg">
-    </audio>
+    <audio id="audio1" preload="none"><source src="https://files.catbox.moe/h9gsti.mp4" type="audio/mpeg"></audio>
+    <audio id="audio2" preload="none"><source src="https://files.catbox.moe/q2xgkd.mp4" type="audio/mpeg"></audio>
 
     <header id="home">
         <nav>
             <div class="nav-container">
                 <ul>
                     <li><a href="#home">HOME</a></li>
-                    <li><a href="#structure">STRUCTURE</a></li>
+                    <li><a href="#about">ABOUT</a></li> <li><a href="#structure">STRUCTURE</a></li>
                     <li><a href="#members">MEMBERS</a></li>
                     <li><a href="#gallery">GALLERY</a></li>
                 </ul>
@@ -65,68 +90,81 @@
         </div>
     </header>
 
-    <section id="structure" class="page-section">
-        <h2 class="section-title" data-aos="fade-up">CLASS STRUCTURE</h2>
+    <section id="about" class="page-section">
+        <h2 class="section-title" data-aos="fade-up">ABOUT US</h2>
+        <div class="about-card" data-aos="zoom-in">
+            <i class="fas fa-quote-left" style="font-size: 2rem; color: #fff; margin-bottom: 20px; opacity: 0.5;"></i>
+            <p style="line-height: 1.8; color: #ddd; font-family: 'Open Sans', sans-serif;">
+                Selamat datang di Website Kelas IX T AMIR HAMZAH Periode 2026 - Sebuah Website Yang Menampilkan Struktur Kelas, Anggota, dan Galeri Foto yang Mewakili Perjalanan Kami Bersama.
+            </p>
+            <div style="margin: 30px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 20px 0;">
+                <p style="font-weight: 700; color: #fff; letter-spacing: 2px;">"UNITED BY DREAMS, BOUND BY FRIENDSHIP - Warning Terdapat Lebih dari 100 foto!"</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="structure" class="page-section alt-bg"> <h2 class="section-title" data-aos="fade-up">CLASS STRUCTURE</h2>
         <div class="org-chart">
             <div class="chart-row" data-aos="fade-up">
                 <div class="member-item" style="width: 250px;">
-                    <div class="member-photo"><img src="https://files.catbox.moe/z7u8ue.jpeg"></div>
+                    <div class="member-photo"><img src=""></div>
                     <div class="member-info">
                         <span class="role-label">WALI KELAS</span>
-                        <h4>Nama Guru, S.Pd</h4>
-                        <a href="#" class="ig-link">@ig_guru</a>
+                        <h4>BOBBY ROLAND MANULANG, S. Pd</h4>
+                        <a href="#" class="ig-link">@manullang.boby</a>
                     </div>
                 </div>
             </div>
             <div class="connector"></div>
             <div class="chart-row" data-aos="fade-up">
                 <div class="member-item">
-                    <div class="member-photo"><img src="https://files.catbox.moe/z7u8ue.jpeg"></div>
+                    <div class="member-photo"><img src=""></div>
                     <div class="member-info">
                         <span class="role-label">KETUA KELAS</span>
                         <h4>Syahira Eldia Dwindah</h4>
-                        <a href="https://instagram.com/_" class="ig-link">@_</a>
+                        <a href="#" class="ig-link">@syahiraeldia.d</a>
                     </div>
                 </div>
                 <div class="member-item">
-                    <div class="member-photo"><img src="https://files.catbox.moe/z7u8ue.jpeg"></div>
+                    <div class="member-photo"><img src=""></div>
                     <div class="member-info">
                         <span class="role-label">WAKIL KETUA</span>
                         <h4>Hiskia Oktafiano</h4>
-                        <a href="#" class="ig-link">@</a>
+                        <a href="#" class="ig-link">@oktano03_</a>
                     </div>
                 </div>
             </div>
             <div class="connector"></div>
             <div class="chart-row" data-aos="fade-up">
                 <div class="member-item" style="width: 180px;">
-                    <div class="member-photo" style="height: 220px;"><img src="https://files.catbox.moe/z7u8ue.jpeg"></div>
+                    <div class="member-photo" style="height: 220px;"><img src=""></div>
                     <div class="member-info">
                         <span class="role-label">SEKRETARIS</span>
                         <h4>Bulan Cahaya Fajli</h4>
-                        <a href="#" class="ig-link">@ig_sekretaris</a>
+                        <a href="#" class="ig-link">@bulanfya</a>
                     </div>
                 </div>
                 <div class="member-item" style="width: 180px;">
-                    <div class="member-photo" style="height: 220px;"><img src="https://files.catbox.moe/z7u8ue.jpeg"></div>
+                    <div class="member-photo" style="height: 220px;"><img src=""></div>
                     <div class="member-info">
                         <span class="role-label">BENDAHARA</span>
                         <h4>Keyla Rahmadan</h4>
-                        <a href="#" class="ig-link">@ig_bendahara</a>
+                        <a href="#" class="ig-link">@keylarahmadani58</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="members" class="page-section alt-bg">
+    <section id="members" class="page-section">
         <h2 class="section-title" data-aos="fade-up">CLASS MEMBERS</h2>
         <div class="members-grid" id="member-container"></div>
     </section>
 
-    <section id="gallery" class="page-section">
+    <section id="gallery" class="page-section alt-bg">
         <h2 class="section-title">GALLERY MEMORIES</h2>
         <div class="gallery-masonry" id="gallery-container"></div>
+        <button id="loadMoreBtn" class="btn-load-more" onclick="renderGallery()">LOAD MORE PHOTOS</button>
     </section>
 
     <footer>
@@ -135,7 +173,7 @@
             <a href="#" style="color:white;"><i class="fab fa-instagram"></i></a>
             <a href="#" style="color:white;"><i class="fab fa-tiktok"></i></a>
         </div>
-        <p style="font-size: 10px; opacity: 0.5;">&copy; 2026 Official Class Website</p>
+        <p style="font-size: 10px; opacity: 0.5;">&copy; Created by ai and Mirza</p>
     </footer>
 
     <div id="photoModal" class="modal" onclick="closeModal()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; justify-content:center; align-items:center;">
@@ -150,41 +188,43 @@
         let idx = 0;
         function type() { if(idx < text.length) { document.getElementById("typing-text").innerHTML += text.charAt(idx); idx++; setTimeout(type, 100); } }
 
+        let playStep = 0; 
         function togglePlay() { 
-            const a = document.getElementById("myAudio"); 
-            const b = document.getElementById("playBtn");
-            if(a.paused) { a.play(); b.innerText = "STOP MUSIC"; } else { a.pause(); b.innerText = "PLAY MUSIC"; }
+            const a1 = document.getElementById("audio1"); const a2 = document.getElementById("audio2"); const b = document.getElementById("playBtn");
+            if (playStep === 0) { a1.play(); b.innerText = "Tujuh Belas"; playStep = 1; } 
+            else if (playStep === 1) { a1.pause(); a1.currentTime = 0; a2.play(); b.innerText = "Kita Ke Sana"; playStep = 2; } 
+            else { a1.pause(); a2.pause(); a1.currentTime = 0; a2.currentTime = 0; b.innerText = "PLAY MUSIC"; playStep = 0; }
         }
 
         const classMembers = [
-            { name: "Ainayya Salsabila", ig: "ainayya.salsabila8", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "Alvin Rauf Sandi", ig: "alvinrauf_", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "Amirah Aqila", ig: "thyvmirra", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "Angel Hutagalung", ig: "angelhutagalung", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "Benedicta Artanami", ig: "dictatara", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "JC Cruiser Samuel", ig: "sawit_11", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "Khalishah Yumnazza", ig: "kyumnazzar", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "Kriti Humairoh", ig: "kritihumairoh", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "M. Asyraf Chandra", ig: "asyrafchandra26_", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "M. Mirza Syahputra", ig: "_mirza64_", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "Mario Risky Bayu", ig: "mariorizkybyu", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "Muhammad Fadhil", ig: "dill_1171", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "M. Fatir Wijaya", ig: "patierr22", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "M. Fachri Afif", ig: "apeprmbe", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "M. Kenzi Rakka", ig: "kenrp14", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "M. Rifqi Nugraha", ig: "_qii115", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "Najwa Asilah Putri", ig: "waafw_", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "Natasya Olivia", ig: "tasyaolivvs", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "Nayla Jasmine Lubis", ig: "naylajasminelbs", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "Noval Kurniawan", ig: "novalkurnia", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "Okto Iglesias", ig: "okto_na70", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "Radhyka Qafadilla", ig: "its.radhyka", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "Rafqy Rahmatillah", ig: "akurafqy_r", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "Salsabilla Yasmin", ig: "salsabilla_ysmn", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "Shely Arliza", ig: "shelylizaa", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "Syaiddina Fatiha", ig: "syaiddina_fatiha", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "Syharina", ig: "rinna_ryy", photo: "https://files.catbox.moe/z7u8ue.jpeg" },
-            { name: "Tasya", ig: "tasyyalne", photo: "https://files.catbox.moe/z7u8ue.jpeg" }
+            { name: "Ainayya Salsabila", ig: "ainayya.salsabila8", photo: "" },
+            { name: "Alvin Rauf Sandi", ig: "alvinrauf_", photo: "" },
+            { name: "Amirah Aqila", ig: "thyvmirra", photo: "" },
+            { name: "Angel Hutagalung", ig: "angellhutagalung", photo: "" },
+            { name: "Benedicta Artanami", ig: "dictatara", photo: "" },
+            { name: "JC Cruiser Samuel", ig: "sawit_11", photo: "" },
+            { name: "Khalishah Yumnazza", ig: "_kyumnazzar_", photo: "" },
+            { name: "Kriti Humairoh", ig: "kritihumairoh", photo: "" },
+            { name: "M. Asyraf Chandra", ig: "asyrafchandra26_", photo: "" },
+            { name: "M. Mirza Syahputra", ig: "_mirza64_", photo: "" },
+            { name: "Mario Risky Bayu", ig: "mariorizkybyu", photo: "" },
+            { name: "Muhammad Fadhil", ig: "dill_1171", photo: "" },
+            { name: "M. Fatir Wijaya", ig: "patierr22", photo: "" },
+            { name: "M. Fachri Afif", ig: "apeprmbe", photo: "" },
+            { name: "M. Kenzi Rakka", ig: "kenrp14", photo: "" },
+            { name: "M. Rifqi Nugraha", ig: "_qii115", photo: "" },
+            { name: "Najwa Asilah Putri", ig: "waafw_", photo: "" },
+            { name: "Natasya Olivia", ig: "tasyaolivvs", photo: "" },
+            { name: "Nayla Jasmine Lubis", ig: "naylajasminelbs", photo: "" },
+            { name: "Noval Kurniawan", ig: "novalkurnia", photo: "" },
+            { name: "Okto Iglesias", ig: "okto_na70", photo: "" },
+            { name: "Radhyka Qafadilla", ig: "its.radhyka", photo: "" },
+            { name: "Rafqy Rahmatillah", ig: "akurafqy_r", photo: "" },
+            { name: "Salsabilla Yasmin", ig: "salsabilla_ysmn", photo: "" },
+            { name: "Shely Arliza", ig: "shelylizaa", photo: "" },
+            { name: "Syaiddina Fatiha", ig: "syaiddina_fatiha", photo: "" },
+            { name: "Syharina", ig: "rinna_ryy", photo: "" },
+            { name: "Tasya", ig: "tasyyalne", photo: "" }
         ];
 
         const mContainer = document.getElementById('member-container');
@@ -201,72 +241,160 @@
                 </div>`;
         });
 
-        const galleryList = [
-            "https://files.catbox.moe/ijdltk.jpeg", "https://files.catbox.moe/z7u8ue.jpeg", "https://files.catbox.moe/ani541.jpeg",
-            "https://files.catbox.moe/dfqiya.jpeg", "https://files.catbox.moe/q37v55.jpeg", "https://files.catbox.moe/94rfsc.jpeg",
-            "https://files.catbox.moe/jf33jq.jpeg", "https://files.catbox.moe/ijdltk.jpeg", "https://files.catbox.moe/jxp3jc.jpeg",
-            "https://files.catbox.moe/hp7i1z.jpeg", "https://files.catbox.moe/pjdpja.jpeg", "https://files.catbox.moe/cokyvw.jpeg",
-            "https://files.catbox.moe/j4sfed.jpeg", "https://files.catbox.moe/p7dlef.jpeg", "https://files.catbox.moe/udv48t.jpeg",
-            "https://files.catbox.moe/1a9f8z.jpeg", "https://files.catbox.moe/ktsmpv.jpeg", "https://files.catbox.moe/ahdx9e.jpeg",
-            "https://files.catbox.moe/xxikix.jpeg", "https://files.catbox.moe/2oralj.jpeg", "https://files.catbox.moe/ol9ibz.jpeg",
-            "https://files.catbox.moe/vmuxf9.jpeg", "https://files.catbox.moe/75cpdt.jpeg", "https://files.catbox.moe/8tz381.jpeg",
-            "https://files.catbox.moe/86xwe1.jpeg", "https://files.catbox.moe/urmyec.jpeg", "https://files.catbox.moe/tvhggh.jpeg",
-            "https://files.catbox.moe/6m7yfc.jpeg", "https://files.catbox.moe/xxikix.jpeg", "https://files.catbox.moe/nzlezq.jpeg",
-            "https://files.catbox.moe/g4mfrb.jpeg", "https://files.catbox.moe/mucl9n.jpeg", "https://files.catbox.moe/tfm3ie.jpeg",
-            "https://files.catbox.moe/03t3ec.jpeg", "https://files.catbox.moe/n9gweb.jpeg", "https://files.catbox.moe/vjlpjz.jpeg",
-            "https://files.catbox.moe/i98znw.jpeg", "https://files.catbox.moe/ifmc3g.jpeg", "https://files.catbox.moe/2383vg.jpeg",
-            "https://files.catbox.moe/2dtyd4.jpeg", "https://files.catbox.moe/ljobbi.jpeg", "https://files.catbox.moe/090ztn.jpeg",
-            "https://files.catbox.moe/ab3cpy.jpeg", "https://files.catbox.moe/4jlilt.jpeg", "https://files.catbox.moe/3latyf.jpeg",
-            "https://files.catbox.moe/lsamic.jpeg", "https://files.catbox.moe/bvbmtf.jpeg", "https://files.catbox.moe/1bg4fy.jpeg",
-            "https://files.catbox.moe/ujl784.jpeg", "https://files.catbox.moe/o30abb.jpeg", "https://files.catbox.moe/dam6r3.jpeg",
-            "https://files.catbox.moe/vfrlw6.jpeg", "https://files.catbox.moe/ybmk16.jpeg", "https://files.catbox.moe/wcrlos.jpeg",
-            "https://files.catbox.moe/d31we1.jpeg", "https://files.catbox.moe/i8dht9.jpeg", "https://files.catbox.moe/fburxc.jpeg",
-            "https://files.catbox.moe/ocy59w.jpeg", "https://files.catbox.moe/cly552.jpeg", "https://files.catbox.moe/r24nm5.jpeg",
-            "https://files.catbox.moe/ho3li1.jpeg", "https://files.catbox.moe/8jck6d.mp4", "https://files.catbox.moe/k0wu1c.mp4",
-            "https://files.catbox.moe/9htsum.mp4", "https://files.catbox.moe/z48pdj.mp4", "https://files.catbox.moe/72pmba.mp4",
-            "https://files.catbox.moe/gp8bo1.mp4", "https://files.catbox.moe/onjnue.mp4", "https://files.catbox.moe/ujl784.jpeg",
-            "https://files.catbox.moe/4mrnm1.jpeg", "https://files.catbox.moe/bn9k86.mp4", "https://files.catbox.moe/a0kv0d.mp4",
-            "https://files.catbox.moe/ms5zeu.mp4",
-        ];
+const galleryList = [
+    "https://files.catbox.moe/ijdltk.jpeg",
+    "https://files.catbox.moe/z7u8ue.jpeg",
+    "https://files.catbox.moe/ani541.jpeg",
+    "https://files.catbox.moe/dfqiya.jpeg",
+    "https://files.catbox.moe/q37v55.jpeg",
+    "https://files.catbox.moe/94rfsc.jpeg",
+    "https://files.catbox.moe/jf33jq.jpeg",
+    "https://files.catbox.moe/jxp3jc.jpeg",
+    "https://files.catbox.moe/hp7i1z.jpeg",
+    "https://files.catbox.moe/pjdpja.jpeg",
+    "https://files.catbox.moe/cokyvw.jpeg",
+    "https://files.catbox.moe/j4sfed.jpeg",
+    "https://files.catbox.moe/p7dlef.jpeg",
+    "https://files.catbox.moe/udv48t.jpeg",
+    "https://files.catbox.moe/1a9f8z.jpeg",
+    "https://files.catbox.moe/ktsmpv.jpeg",
+    "https://files.catbox.moe/ahdx9e.jpeg",
+    "https://files.catbox.moe/xxikix.jpeg",
+    "https://files.catbox.moe/2oralj.jpeg",
+    "https://files.catbox.moe/ol9ibz.jpeg",
+    "https://files.catbox.moe/vmuxf9.jpeg",
+    "https://files.catbox.moe/75cpdt.jpeg",
+    "https://files.catbox.moe/8tz381.jpeg",
+    "https://files.catbox.moe/86xwe1.jpeg",
+    "https://files.catbox.moe/urmyec.jpeg",
+    "https://files.catbox.moe/tvhggh.jpeg",
+    "https://files.catbox.moe/6m7yfc.jpeg",
+    "https://files.catbox.moe/nzlezq.jpeg",
+    "https://files.catbox.moe/g4mfrb.jpeg",
+    "https://files.catbox.moe/mucl9n.jpeg",
+    "https://files.catbox.moe/tfm3ie.jpeg",
+    "https://files.catbox.moe/03t3ec.jpeg",
+    "https://files.catbox.moe/n9gweb.jpeg",
+    "https://files.catbox.moe/vjlpjz.jpeg",
+    "https://files.catbox.moe/i98znw.jpeg",
+    "https://files.catbox.moe/ifmc3g.jpeg",
+    "https://files.catbox.moe/2383vg.jpeg",
+    "https://files.catbox.moe/2dtyd4.jpeg",
+    "https://files.catbox.moe/ljobbi.jpeg",
+    "https://files.catbox.moe/090ztn.jpeg",
+    "https://files.catbox.moe/ab3cpy.jpeg",
+    "https://files.catbox.moe/4jlilt.jpeg",
+    "https://files.catbox.moe/3latyf.jpeg",
+    "https://files.catbox.moe/lsamic.jpeg",
+    "https://files.catbox.moe/bvbmtf.jpeg",
+    "https://files.catbox.moe/1bg4fy.jpeg",
+    "https://files.catbox.moe/ujl784.jpeg",
+    "https://files.catbox.moe/o30abb.jpeg",
+    "https://files.catbox.moe/dam6r3.jpeg",
+    "https://files.catbox.moe/vfrlw6.jpeg",
+    "https://files.catbox.moe/ybmk16.jpeg",
+    "https://files.catbox.moe/wcrlos.jpeg",
+    "https://files.catbox.moe/d31we1.jpeg",
+    "https://files.catbox.moe/i8dht9.jpeg",
+    "https://files.catbox.moe/fburxc.jpeg",
+    "https://files.catbox.moe/ocy59w.jpeg",
+    "https://files.catbox.moe/cly552.jpeg",
+    "https://files.catbox.moe/r24nm5.jpeg",
+    "https://files.catbox.moe/ho3li1.jpeg",
+    "https://files.catbox.moe/8jck6d.mp4",
+    "https://files.catbox.moe/k0wu1c.mp4",
+    "https://files.catbox.moe/9htsum.mp4",
+    "https://files.catbox.moe/z48pdj.mp4",
+    "https://files.catbox.moe/72pmba.mp4",
+    "https://files.catbox.moe/gp8bo1.mp4",
+    "https://files.catbox.moe/onjnue.mp4",
+    "https://files.catbox.moe/4mrnm1.jpeg",
+    "https://files.catbox.moe/bn9k86.mp4",
+    "https://files.catbox.moe/a0kv0d.mp4",
+    "https://files.catbox.moe/ms5zeu.mp4",
+    "https://files.catbox.moe/63pfxi.jpeg",
+    "https://files.catbox.moe/3rnsld.jpeg",
+    "https://files.catbox.moe/dltezx.jpeg",
+    "https://files.catbox.moe/p7pvs7.jpeg",
+    "https://files.catbox.moe/wcvo3a.jpeg",
+    "https://files.catbox.moe/1c7bdt.jpeg",
+    "https://files.catbox.moe/j9ntof.jpeg",
+    "https://files.catbox.moe/7emlu5.jpeg",
+    "https://files.catbox.moe/zixeba.jpeg",
+    "https://files.catbox.moe/bj9o2m.jpeg",
+    "https://files.catbox.moe/3s8j2y.jpeg",
+    "https://files.catbox.moe/g1dxsd.jpeg",
+    "https://files.catbox.moe/mo41uz.jpeg",
+    "https://files.catbox.moe/nqmvo2.jpeg",
+    "https://files.catbox.moe/tv9r80.jpeg",
+    "https://files.catbox.moe/hbpcrg.jpeg",
+    "https://files.catbox.moe/uq8a33.jpeg",
+    "https://files.catbox.moe/sx8st3.jpeg",
+    "https://files.catbox.moe/wq1nls.jpeg",
+    "https://files.catbox.moe/i18ty3.jpeg",
+    "https://files.catbox.moe/25ggye.jpeg",
+    "https://files.catbox.moe/e0hned.jpeg",
+    "https://files.catbox.moe/akj5gq.jpeg",
+    "https://files.catbox.moe/k2w4gk.jpeg",
+    "https://files.catbox.moe/dlb7py.jpeg",
+    "https://files.catbox.moe/g58j73.jpeg",
+    "https://files.catbox.moe/f2gpcp.jpeg",
+    "https://files.catbox.moe/pwufiq.jpeg",
+    "https://files.catbox.moe/u0wqgk.jpeg",
+    "https://files.catbox.moe/q1l6rt.jpeg",
+    "https://files.catbox.moe/dh5jo2.mp4",
+    "https://files.catbox.moe/jr23zc.mp4",
+    "https://files.catbox.moe/o7qzhg.mp4",
+    "https://files.catbox.moe/3984a0.mp4",
+    "https://files.catbox.moe/t0mo71.mp4",
+    "https://files.catbox.moe/5q1zlm.jpeg",
+    "https://files.catbox.moe/z5y685.jpg",
+    "https://files.catbox.moe/2jovr3.JPG",
+    "https://files.catbox.moe/jw924c.jpeg",
+    "https://files.catbox.moe/yq6fj3.jpeg",
+    "https://files.catbox.moe/a9edsb.jpeg",
+    "https://files.catbox.moe/kznskt.mp4",
+    "https://files.catbox.moe/jvqwqj.mp4",
+    "https://files.catbox.moe/9m8c26.jpeg",
+    "https://files.catbox.moe/yfv8gs.jpeg",
+    "https://files.catbox.moe/hk5upu.jpeg",
+    "https://files.catbox.moe/wkoepf.mp4"
+];
+        
+        let currentIdx = 0;
+        const itemsPerLoad = 10;
 
-        const gContainer = document.getElementById('gallery-container');
-        galleryList.forEach(s => {
-            const isVid = s.toLowerCase().endsWith('.mp4');
-            if(isVid) {
-                gContainer.innerHTML += `
-                <div class="gallery-item" onclick="openMedia('${s}', true)">
-                    <video src="${s}" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;"></video>
-                    <div class="play-icon-overlay"><i class="fas fa-play-circle"></i></div>
-                </div>`;
-            } else {
-                gContainer.innerHTML += `
-                <div class="gallery-item" onclick="openMedia('${s}', false)">
-                    <img src="${s}" loading="lazy">
-                </div>`;
+        function renderGallery() {
+            const gContainer = document.getElementById('gallery-container');
+            const limit = Math.min(currentIdx + itemsPerLoad, galleryList.length);
+            
+            for (let i = currentIdx; i < limit; i++) {
+                const s = galleryList[i];
+                const isVid = s.toLowerCase().endsWith('.mp4');
+                const html = isVid ? 
+                    `<div class="gallery-item" onclick="openMedia('${s}', true)"><video src="${s}" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;"></video><div class="play-icon-overlay"><i class="fas fa-play-circle"></i></div></div>` :
+                    `<div class="gallery-item" onclick="openMedia('${s}', false)"><img src="${s}" loading="lazy"></div>`;
+                gContainer.innerHTML += html;
             }
-        });
+            currentIdx = limit;
+            if (currentIdx >= galleryList.length) document.getElementById('loadMoreBtn').style.display = 'none';
+        }
 
         function openMedia(src, isVid) {
             const modal = document.getElementById("photoModal");
             const wrapper = document.getElementById("modalContent");
             modal.style.display = "flex";
-            if(isVid) {
-                wrapper.innerHTML = `<video src="${src}" id="fullVideo" controls autoplay></video>`;
-            } else {
-                wrapper.innerHTML = `<img src="${src}" id="imgFull">`;
-            }
+            wrapper.innerHTML = isVid ? `<video src="${src}" id="fullVideo" controls autoplay></video>` : `<img src="${src}" id="imgFull">`;
         }
 
         function closeModal() {
             const modal = document.getElementById("photoModal");
-            const wrapper = document.getElementById("modalContent");
             const vid = document.getElementById("fullVideo");
             if(vid) vid.pause();
             modal.style.display = "none";
-            wrapper.innerHTML = "";
         }
 
-        window.onload = type;
+        window.onload = () => { type(); renderGallery(); };
     </script>
 </body>
 </html>

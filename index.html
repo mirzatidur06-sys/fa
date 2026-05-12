@@ -9,10 +9,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <script>
+        // Proteksi Klik Kanan & Shortcut Inspeksi (F12, Ctrl+Shift+I, Ctrl+U)
         document.oncontextmenu = () => false;
-        document.onkeydown = (e) => { if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73)) return false; };
+        document.onkeydown = (e) => { 
+            if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73) || (e.ctrlKey && e.keyCode == 85)) return false; 
+        };
     </script>
     <style>
+        /* Proteksi: Mencegah gambar/video diseret (Drag) */
+        img, video {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+            /* Proteksi Mobile: Mencegah menu 'Save Image' saat tekan lama */
+            -webkit-touch-callout: none;
+            user-select: none;
+        }
+
         .gallery-masonry {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -63,7 +78,7 @@
         }
     </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
 
     <audio id="audio1" preload="none"><source src="https://files.catbox.moe/h9gsti.mp4" type="audio/mpeg"></audio>
     <audio id="audio2" preload="none"><source src="https://files.catbox.moe/q2xgkd.mp4" type="audio/mpeg"></audio>
@@ -82,7 +97,7 @@
         </nav>
         <div class="hero-content">
             <div class="logo-wrapper">
-                <img src="https://files.catbox.moe/sen50c.jpg" alt="Logo" class="rotating-logo">
+                <img src="https://files.catbox.moe/sen50c.jpg" alt="Logo" class="rotating-logo" onmousedown="return false;">
             </div>
             <h1 data-aos="fade-up">IX. T AMIR HAMZAH</h1>
             <div id="typing-text" style="color:#fff; font-weight:600; margin:10px 0; min-height:20px; letter-spacing:2px;"></div>
@@ -107,7 +122,7 @@
         <div class="org-chart">
             <div class="chart-row" data-aos="fade-up">
                 <div class="member-item" style="width: 250px;">
-                    <div class="member-photo"><img src=""></div>
+                    <div class="member-photo"><img src="" onmousedown="return false;"></div>
                     <div class="member-info">
                         <span class="role-label">WALI KELAS</span>
                         <h4>BOBBY ROLAND MANULANG, S. Pd</h4>
@@ -118,7 +133,7 @@
             <div class="connector"></div>
             <div class="chart-row" data-aos="fade-up">
                 <div class="member-item">
-                    <div class="member-photo"><img src=""></div>
+                    <div class="member-photo"><img src="" onmousedown="return false;"></div>
                     <div class="member-info">
                         <span class="role-label">KETUA KELAS</span>
                         <h4>Syahira Eldia Dwindah</h4>
@@ -126,7 +141,7 @@
                     </div>
                 </div>
                 <div class="member-item">
-                    <div class="member-photo"><img src=""></div>
+                    <div class="member-photo"><img src="" onmousedown="return false;"></div>
                     <div class="member-info">
                         <span class="role-label">WAKIL KETUA</span>
                         <h4>HISKIA OKTAFIANO BASTIANTA T.</h4>
@@ -137,7 +152,7 @@
             <div class="connector"></div>
             <div class="chart-row" data-aos="fade-up">
                 <div class="member-item" style="width: 180px;">
-                    <div class="member-photo" style="height: 220px;"><img src=""></div>
+                    <div class="member-photo" style="height: 220px;"><img src="" onmousedown="return false;"></div>
                     <div class="member-info">
                         <span class="role-label">SEKRETARIS</span>
                         <h4>Bulan Cahaya Fajli</h4>
@@ -145,7 +160,7 @@
                     </div>
                 </div>
                 <div class="member-item" style="width: 180px;">
-                    <div class="member-photo" style="height: 220px;"><img src=""></div>
+                    <div class="member-photo" style="height: 220px;"><img src="" onmousedown="return false;"></div>
                     <div class="member-info">
                         <span class="role-label">BENDAHARA</span>
                         <h4>Keyla Rahmadan</h4>
@@ -165,11 +180,8 @@
         <h2 class="section-title">GALLERY MEMORIES</h2>
         <div class="gallery-masonry" id="gallery-container"></div>
         
-        <!-- Container Tombol Kontrol -->
         <div style="text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 30px;">
             <button id="loadMoreBtn" class="btn-load-more" onclick="renderGallery()" style="margin: 0;">LOAD MORE PHOTOS</button>
-            
-            <!-- Tombol Load All -->
             <button id="loadAllBtn" class="btn-load-more" onclick="renderAllGallery()" 
                     style="background: #ff4d4d; color: white; font-size: 11px; margin: 0; padding: 8px 20px;">
                 LOAD ALL PICTURES (Risiko Lag)
@@ -193,6 +205,13 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 800, once: true });
+
+        // Proteksi Tambahan: Mencegah Drag Start via JavaScript
+        document.addEventListener('dragstart', function (e) {
+            if (e.target.nodeName === 'IMG' || e.target.nodeName === 'VIDEO') {
+                e.preventDefault();
+            }
+        }, false);
 
         const text = "Terima kasih telah menjadi bagian dari cerita indah ini.";
         let idx = 0;
@@ -241,7 +260,7 @@
         classMembers.forEach((m, i) => {
             mContainer.innerHTML += `
                 <div class="member-item" data-aos="fade-up">
-                    <div class="member-photo"><img src="${m.photo}" alt="${m.name}" loading="lazy"></div>
+                    <div class="member-photo"><img src="${m.photo}" alt="${m.name}" loading="lazy" onmousedown="return false;"></div>
                     <div class="member-info">
                         <span class="absent-no">${(i+1).toString().padStart(2, '0')}</span>
                         <span class="role-label">MEMBER</span>
@@ -304,8 +323,8 @@
                 const s = galleryList[i];
                 const isVid = s.toLowerCase().endsWith('.mp4');
                 const html = isVid ? 
-                    `<div class="gallery-item" onclick="openMedia('${s}', true)"><video src="${s}" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;"></video><div class="play-icon-overlay"><i class="fas fa-play-circle"></i></div></div>` :
-                    `<div class="gallery-item" onclick="openMedia('${s}', false)"><img src="${s}" loading="lazy"></div>`;
+                    `<div class="gallery-item" onclick="openMedia('${s}', true)"><video src="${s}" muted loop oncontextmenu="return false;" onmousedown="return false;" onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;"></video><div class="play-icon-overlay"><i class="fas fa-play-circle"></i></div></div>` :
+                    `<div class="gallery-item" onclick="openMedia('${s}', false)"><img src="${s}" loading="lazy" oncontextmenu="return false;" onmousedown="return false;"></div>`;
                 gContainer.innerHTML += html;
             }
             currentIdx = limit;
@@ -315,7 +334,6 @@
             }
         }
 
-        // Fungsi Baru: Memuat SEMUA foto/video
         function renderAllGallery() {
             const confirmation = confirm("PERINGATAN: Memuat 100+ media sekaligus dapat menghabiskan kuota data dan menyebabkan browser Anda melambat (lag). Lanjutkan?");
             
@@ -328,8 +346,8 @@
                     const s = galleryList[i];
                     const isVid = s.toLowerCase().endsWith('.mp4');
                     const html = isVid ? 
-                        `<div class="gallery-item" onclick="openMedia('${s}', true)"><video src="${s}" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;"></video><div class="play-icon-overlay"><i class="fas fa-play-circle"></i></div></div>` :
-                        `<div class="gallery-item" onclick="openMedia('${s}', false)"><img src="${s}" loading="lazy"></div>`;
+                        `<div class="gallery-item" onclick="openMedia('${s}', true)"><video src="${s}" muted loop oncontextmenu="return false;" onmousedown="return false;" onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;"></video><div class="play-icon-overlay"><i class="fas fa-play-circle"></i></div></div>` :
+                        `<div class="gallery-item" onclick="openMedia('${s}', false)"><img src="${s}" loading="lazy" oncontextmenu="return false;" onmousedown="return false;"></div>`;
                     gContainer.innerHTML += html;
                 }
                 currentIdx = galleryList.length;
@@ -342,7 +360,10 @@
             const modal = document.getElementById("photoModal");
             const wrapper = document.getElementById("modalContent");
             modal.style.display = "flex";
-            wrapper.innerHTML = isVid ? `<video src="${src}" id="fullVideo" controls autoplay></video>` : `<img src="${src}" id="imgFull">`;
+            // Proteksi tambahan di dalam modal (nodownload untuk video)
+            wrapper.innerHTML = isVid ? 
+                `<video src="${src}" id="fullVideo" controls autoplay controlsList="nodownload" oncontextmenu="return false;"></video>` : 
+                `<img src="${src}" id="imgFull" oncontextmenu="return false;" onmousedown="return false;">`;
         }
 
         function closeModal() {

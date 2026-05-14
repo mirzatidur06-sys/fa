@@ -202,25 +202,54 @@
         let idx = 0;
         function type() { if(idx < text.length) { document.getElementById("typing-text").innerHTML += text.charAt(idx); idx++; setTimeout(type, 100); } }
 
-        let playStep = 0; 
-        function togglePlay() { 
-            const a1 = document.getElementById("audio1"); 
-            const a2 = document.getElementById("audio2"); 
-            const a3 = document.getElementById("audio3"); 
-            const a4 = document.getElementById("audio4"); 
-            const a5 = document.getElementById("audio5"); 
-            const b = document.getElementById("playBtn");
+       let playStep = 0; 
+function togglePlay() { 
+    const a1 = document.getElementById("audio1"); 
+    const a2 = document.getElementById("audio2"); 
+    const a3 = document.getElementById("audio3"); 
+    const a4 = document.getElementById("audio4"); 
+    const a5 = document.getElementById("audio5"); 
+    const b = document.getElementById("playBtn");
 
-            if (playStep === 0) { a1.play(); b.innerText = "Tujuh Belas"; playStep = 1; } 
-            else if (playStep === 1) { a1.pause(); a1.currentTime = 0; a2.play(); b.innerText = "Kita Ke Sana"; playStep = 2; } 
-            else if (playStep === 2) { a2.pause(); a2.currentTime = 0; a3.play(); b.innerText = "Goyang Dumang"; playStep = 3; }
-            else if (playStep === 3) { a3.pause(); a3.currentTime = 0; a4.play(); b.innerText = "See you again"; playStep = 4; }
-            else if (playStep === 4) { a4.pause(); a4.currentTime = 0; a5.play(); b.innerText = "Gk ada lagunya"; playStep = 5; }
-            else { a1.pause(); a2.pause(); a3.pause(); a4.pause(); a5.pause(); a1.currentTime = 0; a2.currentTime = 0; a3.currentTime = 0; a4.currentTime = 0; a5.currentTime = 0; b.innerText = "PLAY MUSIC"; playStep = 0; }
-        }
-
+    if (playStep === 0) { 
+        a1.play(); 
+        b.innerText = "Tujuh Belas"; 
+        playStep = 1; 
+    } 
+    else if (playStep === 1) { 
+        a1.pause(); a1.currentTime = 0; 
+        a2.play(); 
+        b.innerText = "Kita Ke Sana"; 
+        playStep = 2; 
+    } 
+    else if (playStep === 2) { 
+        a2.pause(); a2.currentTime = 0; 
+        a3.play(); 
+        b.innerText = "Goyang Dumang"; 
+        playStep = 3; 
+    }
+    else if (playStep === 3) { 
+        a3.pause(); a3.currentTime = 0; 
+        a4.play(); 
+        b.innerText = "See you again"; 
+        playStep = 4; 
+    }
+    else if (playStep === 4) { 
+        a4.pause(); a4.currentTime = 0; 
+        a5.play(); 
+        b.innerText = "Gk ada lagunya"; 
+        playStep = 5; 
+    }
+    else { 
+        // Bagian ini mematikan semua musik dan reset ke awal
+        a1.pause(); a2.pause(); a3.pause(); a4.pause(); a5.pause();
+        a1.currentTime = 0; a2.currentTime = 0; a3.currentTime = 0; a4.currentTime = 0; a5.currentTime = 0;
+        b.innerText = "PLAY MUSIC"; 
+        playStep = 0; 
+    }
+}
         const classMembers = [
-            { name: "Ainayya Salsabila", ig: "ainayya.salsabila8", photo: "https://lh3.googleusercontent.com/d/1EXhHTw5TAmqOW6_zzEeXpCXaWfRY3Km8" },
+            { name: "Ainayya Salsabila", ig: "ainayya.salsabila8", photo: "" },
             { name: "Alvin Rauf Sandi", ig: "", photo: "" },
             { name: "Amirah Aqila", ig: "thyvmirra", photo: "" },
             { name: "Angel Hutagalung", ig: "angellhutagalung", photo: "" },
@@ -264,8 +293,7 @@
                 </div>`;
         });
 
-        // MASUKKAN SEMUA LINK DRIVE ANDA DI SINI
-const galleryList = [
+        const galleryList = [
     "https://lh3.googleusercontent.com/d/1ZX945VBfICyVd35SHrlAXt1KMDvt_-Ic",
     "https://lh3.googleusercontent.com/d/1ComMqgjqGYWQI9_JX2CV1992pUYY8BBY",
     "https://lh3.googleusercontent.com/d/1GK4nAHsxENmvmUm3H--chOoI6iwYU-L6",
@@ -413,7 +441,6 @@ const galleryList = [
     "https://lh3.googleusercontent.com/d/1JzoQ4BGuX_EBDbiopLZdB07hBOVjxm5f",
     "https://lh3.googleusercontent.com/d/126mVrjfPRUWY8T8fruvmYpISy8FKIK4k",
     "https://lh3.googleusercontent.com/d/1D77nBtVwMvJXxmDJIKSxiSyGyFAi3siK",
-    "https://lh3.googleusercontent.com/d/1fA_BUoEwDvhsb4VaJnCk2gQA7KeLq9j3",
     "https://lh3.googleusercontent.com/d/1k672G5TBev25l41ymiGn7OkUtw2CE3qT",
     "https://lh3.googleusercontent.com/d/1VHy0A6JNqt6a82yboh61cnxd85BTpQ6n",
     "https://lh3.googleusercontent.com/d/1oEfAdvz_Taatq1q_TjTeV6ABjNXRkgew",
@@ -422,14 +449,6 @@ const galleryList = [
     "https://lh3.googleusercontent.com/d/1cU_ZCZqko_6LeTMNSVgTkjXhT-gYU6uB",
     "https://lh3.googleusercontent.com/d/10iYn4wPZm2RURbvXjWHxKtHvgvyzDO6g",
     "https://lh3.googleusercontent.com/d/11mCZ_gt6GDXIzQ9F7nHN0dbqBpzUuVOf",
-    "https://lh3.googleusercontent.com/d/1gw1e5RwrbTh3d3cllnHbZK8ySTQuk7k-",
-    "https://lh3.googleusercontent.com/d/1BlTiyJn8Myki9UWEFNWH0TZuvm01wFYn",
-    "https://lh3.googleusercontent.com/d/1WWNNdIkrR_k3f9eZ64GX20XzfbbyhPTP",
-    "https://lh3.googleusercontent.com/d/1pBvvUDFvh8F13To9VKGbQU3xdA4ABqYa",
-    "https://lh3.googleusercontent.com/d/1m6AoWSYTdjL9G2dk3-7MjVdQwDSYA5Ln",
-    "https://lh3.googleusercontent.com/d/1gfpVdMm5fGIf_Lb0xN1tQjc7owy7xInb",
-    "https://lh3.googleusercontent.com/d/1WEVSCDe-mkD6oa-7PZIyGvsmvZut1F7h",
-    "https://lh3.googleusercontent.com/d/1Mvbeq9iW-FZNE1v5BEviegClUPmFtf9U",
     "https://lh3.googleusercontent.com/d/1udvxhyWPYDJ7JhOjK4_8Io438sLtDZ23",
     "https://lh3.googleusercontent.com/d/17iAhudgddhraDwvGN6F8V1DCErF4rEc8",
     "https://lh3.googleusercontent.com/d/1ci7twWk242HJTkW2yAamHF6ZMzvrP56a",
@@ -465,15 +484,17 @@ const galleryList = [
     "https://lh3.googleusercontent.com/d/1S3-4vatjiWU9PNYXxfDVhSMDWEo697em",
     "https://lh3.googleusercontent.com/d/1tVek0NAsN8QNYd3H_2RD9E6PbOaCi_CD",
     "https://lh3.googleusercontent.com/d/1CWlrCu6p7X-iISYVvqpf77CbwT8XrRjq",
-    "https://lh3.googleusercontent.com/d/1dr3j4nKOmLjxhDT1zcx5w8_Bih4j1BQr"
+    "https://lh3.googleusercontent.com/d/1dr3j4nKOmLjxhDT1zcx5w8_Bih4j1BQr",
+    "https://files.catbox.moe/8jck6d.mp4", "https://files.catbox.moe/k0wu1c.mp4", "https://files.catbox.moe/9htsum.mp4",
+            "https://files.catbox.moe/z48pdj.mp4", "https://files.catbox.moe/72pmba.mp4", "https://files.catbox.moe/gp8bo1.mp4",
+            "https://files.catbox.moe/onjnue.mp4", "https://files.catbox.moe/bn9k86.mp4", "https://files.catbox.moe/a0kv0d.mp4",
+            "https://files.catbox.moe/ms5zeu.mp4", "https://files.catbox.moe/dh5jo2.mp4", "https://files.catbox.moe/jr23zc.mp4",
+            "https://files.catbox.moe/o7qzhg.mp4", "https://files.catbox.moe/3984a0.mp4", "https://files.catbox.moe/t0mo71.mp4",
+            "https://files.catbox.moe/kznskt.mp4", "https://files.catbox.moe/jvqwqj.mp4", "https://files.catbox.moe/wkoepf.mp4"
 ];
+        
         let currentIdx = 0;
         const itemsPerLoad = 10;
-
-        // Fungsi pembantu untuk cek apakah link adalah video atau Google Drive
-        function checkIsVid(url) {
-            return url.toLowerCase().endsWith('.mp4') || (url.includes('drive.google.com') && !url.includes('googleusercontent'));
-        }
 
         function renderGallery() {
             const gContainer = document.getElementById('gallery-container');
@@ -481,14 +502,9 @@ const galleryList = [
             
             for (let i = currentIdx; i < limit; i++) {
                 const s = galleryList[i];
-                const isVid = checkIsVid(s);
+                const isVid = s.toLowerCase().endsWith('.mp4');
                 const html = isVid ? 
-                    `<div class="gallery-item" onclick="openMedia('${s}', true)">
-                        <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#222;">
-                            <i class="fas fa-play-circle" style="color:white; font-size:3rem; opacity:0.5;"></i>
-                        </div>
-                        <div class="play-icon-overlay"><i class="fas fa-play-circle"></i></div>
-                    </div>` :
+                    `<div class="gallery-item" onclick="openMedia('${s}', true)"><video src="${s}" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;"></video><div class="play-icon-overlay"><i class="fas fa-play-circle"></i></div></div>` :
                     `<div class="gallery-item" onclick="openMedia('${s}', false)"><img src="${s}" loading="lazy"></div>`;
                 gContainer.innerHTML += html;
             }
@@ -499,20 +515,26 @@ const galleryList = [
             }
         }
 
+        // Fungsi Baru: Memuat SEMUA foto/video
         function renderAllGallery() {
-            if (confirm("PERINGATAN: Memuat banyak media dapat menyebabkan lag. Lanjutkan?")) {
+            const confirmation = confirm("PERINGATAN: Memuat 100+ media sekaligus dapat menghabiskan kuota data dan menyebabkan browser Anda melambat (lag). Lanjutkan?");
+            
+            if (confirmation) {
                 const gContainer = document.getElementById('gallery-container');
+                const loadMoreBtn = document.getElementById('loadMoreBtn');
+                const loadAllBtn = document.getElementById('loadAllBtn');
+
                 for (let i = currentIdx; i < galleryList.length; i++) {
                     const s = galleryList[i];
-                    const isVid = checkIsVid(s);
+                    const isVid = s.toLowerCase().endsWith('.mp4');
                     const html = isVid ? 
-                        `<div class="gallery-item" onclick="openMedia('${s}', true)"><div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#222;"><i class="fas fa-play-circle" style="color:white; font-size:3rem; opacity:0.5;"></i></div><div class="play-icon-overlay"><i class="fas fa-play-circle"></i></div></div>` :
+                        `<div class="gallery-item" onclick="openMedia('${s}', true)"><video src="${s}" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;"></video><div class="play-icon-overlay"><i class="fas fa-play-circle"></i></div></div>` :
                         `<div class="gallery-item" onclick="openMedia('${s}', false)"><img src="${s}" loading="lazy"></div>`;
                     gContainer.innerHTML += html;
                 }
                 currentIdx = galleryList.length;
-                document.getElementById('loadMoreBtn').style.display = 'none';
-                document.getElementById('loadAllBtn').style.display = 'none';
+                loadMoreBtn.style.display = 'none';
+                loadAllBtn.style.display = 'none';
             }
         }
 
@@ -520,26 +542,17 @@ const galleryList = [
             const modal = document.getElementById("photoModal");
             const wrapper = document.getElementById("modalContent");
             modal.style.display = "flex";
-
-            if (isVid) {
-                if (src.includes('drive.google.com')) {
-                    // Konversi link Drive ke preview agar bisa diputar
-                    let fileId = src.split('/d/')[1].split('/')[0];
-                    wrapper.innerHTML = `<iframe src="https://drive.google.com/file/d/${fileId}/preview" width="100%" height="500px" style="border:none;" allow="autoplay"></iframe>`;
-                } else {
-                    wrapper.innerHTML = `<video src="${src}" id="fullVideo" controls autoplay style="width:100%; max-height:80vh;"></video>`;
-                }
-            } else {
-                wrapper.innerHTML = `<img src="${src}" id="imgFull" style="max-width:100%; max-height:80vh; border-radius:10px;">`;
-            }
+            wrapper.innerHTML = isVid ? `<video src="${src}" id="fullVideo" controls autoplay></video>` : `<img src="${src}" id="imgFull">`;
         }
 
         function closeModal() {
             const modal = document.getElementById("photoModal");
-            const wrapper = document.getElementById("modalContent");
-            wrapper.innerHTML = ""; // Hapus konten agar video/iframe berhenti total
+            const vid = document.getElementById("fullVideo");
+            if(vid) vid.pause();
             modal.style.display = "none";
         }
 
         window.onload = () => { type(); renderGallery(); };
     </script>
+</body>
+</html>

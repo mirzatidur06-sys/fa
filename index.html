@@ -180,20 +180,21 @@
         </div>
     </section>
 
-    <footer>
-        <h3 style="letter-spacing: 3px; margin-bottom: 15px;">IX T. AMIR HAMZAH</h3>
-        <div class="social-links" style="margin-bottom: 15px; font-size: 1.5rem; display: flex; justify-content: center; gap: 20px;">
-            <a href="#" style="color:white;"><i class="fab fa-instagram"></i></a>
-            <a href="#" style="color:white;"><i class="fab fa-tiktok"></i></a>
-        </div>
-        <p style="font-size: 10px; opacity: 0.5;">&copy; Created by ai and Mirza</p>
-    </footer>
+   <footer>
+    <h3 style="letter-spacing: 3px; margin-bottom: 15px;">IX T. AMIR HAMZAH</h3>
+    <div class="social-links" style="margin-bottom: 15px; font-size: 1.5rem; display: flex; justify-content: center; gap: 20px;">
+        <!-- Ganti link di bawah ini dengan URL profil yang benar -->
+        <a href="https://www.instagram.com/9tengkuamirhamzah" target="_blank" style="color:white;"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@tmpride26" target="_blank" style="color:white;"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <p style="font-size: 10px; opacity: 0.5;">&copy; Vibe Coding</p>
+</footer>
 
     <div id="photoModal" class="modal" onclick="closeModal()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; justify-content:center; align-items:center;">
         <div class="modal-content-wrapper" id="modalContent"></div>
     </div>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 800, once: true });
 
@@ -201,7 +202,7 @@
         let idx = 0;
         function type() { if(idx < text.length) { document.getElementById("typing-text").innerHTML += text.charAt(idx); idx++; setTimeout(type, 100); } }
 
- let playStep = 0; 
+       let playStep = 0; 
 function togglePlay() { 
     const a1 = document.getElementById("audio1"); 
     const a2 = document.getElementById("audio2"); 
@@ -247,11 +248,9 @@ function togglePlay() {
         playStep = 0; 
     }
 }
-
-        // --- ARRAY MEMBER ---
         const classMembers = [
             { name: "Ainayya Salsabila", ig: "ainayya.salsabila8", photo: "" },
-            { name: "Alvin Rauf Sandi", ig: "alvinrauf_", photo: "" },
+            { name: "Alvin Rauf Sandi", ig: "", photo: "" },
             { name: "Amirah Aqila", ig: "thyvmirra", photo: "" },
             { name: "Angel Hutagalung", ig: "angellhutagalung", photo: "" },
             { name: "Benedicta Artanami", ig: "dictatara", photo: "" },
@@ -294,61 +293,57 @@ function togglePlay() {
                 </div>`;
         });
 
-        // --- GALLERY DENGAN LINK TERACAK (BASE64) ---
-        const galleryEncoded = [
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2lqZGx0ay5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3o3dTh1ZS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2FuaTU0MS5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2RmcWl5YS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3EzN3Y1NS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzk0cmZzYy5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2pmMzNqcS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2p4cDNqYy5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2hwN2kxei5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3BqZHBqYS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2Nva3l2dy5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2o0c2ZlZC5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3A3ZGxlZi5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3VkdjQ4dC5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzFhOWY4ei5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2t0c21wdi5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2FoZHg5ZS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3h4aWtpeC5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzJvcmFsai5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL29sOWliei5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3ZtdXhmOS5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzc1Y3BkdC5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzh0ejM4MS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzg2eHdlMS5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3VybXllYy5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3R2aGdnaC5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzZtN3lmYy5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL256bGV6cS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2c0bWZyYi5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL211Y2w5bi5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3RmbTNpZS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzAzdDNlYy5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL245Z3dlYi5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3ZqbHBqei5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2k5OHpudy5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2lmbWMzZy5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzIzODN2Zy5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzJkdHlkNC5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2xqb2JiaS5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzA5MHp0bi5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2FiM2NweS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzRqbGlsdC5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzNsYXR5Zi5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2xzYW1pYy5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2J2Ym10Zi5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzFiZzRmeS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3VqbDc4NC5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL28zMGFiYi5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2RhbTZyMy5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3Zmcmx3Ni5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3libWsxNi5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3djcmxvcy5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2QzMXdlMS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2k4ZGh0OS5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2ZidXJ4Yy5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL29jeTU5dy5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2NseTU1Mi5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3IyNG5tNS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2hvM2xpMS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzhqY2s2ZC5tcDQ=",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2swd3UxYy5tcDQ=", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzlodHN1bS5tcDQ=", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3o0OHBkai5tcDQ=",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzcycG1iYS5tcDQ=", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2dwOGJvMS5tcDQ=", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL29uam51ZS5tcDQ=",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzRtcm5tMS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2JuOWs4Ni5tcDQ=", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2Ewa3YwZC5tcDQ=",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL21zNXpldS5tcDQ=", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzYzcGZ4aS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzNybnNsZC5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2RsdGV6eC5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3A3cHZzNy5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3djdm8zYS5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzFjN2JkdC5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2o5bnRvZi5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzdlbWx1NS5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3ppeGViYS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2JqOW8ybS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzNzOGoyeS5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2cxZHhzZC5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL21vNDF1ei5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL25xbXZvMi5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3R2OXI4MC5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2hicGNyZy5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3VxOGEzMy5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3N4OHN0My5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3dxMW5scy5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2kxOHR5My5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzI1Z2d5ZS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2UwaG5lZC5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2FrajVncS5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2sydzRnay5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2RsYjdweS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2c1OGo3My5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2YyZ3BjcC5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3B3dWZpcS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3Uwd3Fnay5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3ExbDZydC5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2RoNWpvMi5tcDQ=", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2pyMjN6Yy5tcDQ=",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL283cXpoZy5tcDQ=", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzM5ODRhMC5tcDQ=", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3QwbW83MS5tcDQ=",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzVxMXpsbS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3o1eTY4NS5qcGc=", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzJqb3ZyMy5KUEc=",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2p3OTI0Yy5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3lxNmZqMy5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2E5ZWRzYi5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2t6bnNrdC5tcDQ=", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2p2cXdxai5tcDQ=", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lLzltOGMyNi5qcGVn",
-            "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3lmdjhncy5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL2hrNXVwdS5qcGVn", "aHR0cHM6Ly9maWxlcy5jYXRib3gubW9lL3drb2VwZi5tcDQ="
+        const galleryList = [
+            "https://files.catbox.moe/ijdltk.jp", "https://files.catbox.moe/z7u8ue.jpeg", "https://files.catbox.moe/ani541.jpeg",
+            "https://files.catbox.moe/dfqiya.jpeg", "https://files.catbox.moe/q37v55.jpeg", "https://files.catbox.moe/94rfsc.jpeg",
+            "https://files.catbox.moe/jf33jq.jpeg", "https://files.catbox.moe/jxp3jc.jpeg", "https://files.catbox.moe/hp7i1z.jpeg",
+            "https://files.catbox.moe/pjdpja.jpeg", "https://files.catbox.moe/cokyvw.jpeg", "https://files.catbox.moe/j4sfed.jpeg",
+            "https://files.catbox.moe/p7dlef.jpeg", "https://files.catbox.moe/udv48t.jpeg", "https://files.catbox.moe/1a9f8z.jpeg",
+            "https://files.catbox.moe/ktsmpv.jpeg", "https://files.catbox.moe/ahdx9e.jpeg", "https://files.catbox.moe/xxikix.jpeg",
+            "https://files.catbox.moe/2oralj.jpeg", "https://files.catbox.moe/ol9ibz.jpeg", "https://files.catbox.moe/vmuxf9.jpeg",
+            "https://files.catbox.moe/75cpdt.jpeg", "https://files.catbox.moe/8tz381.jpeg", "https://files.catbox.moe/86xwe1.jpeg",
+            "https://files.catbox.moe/urmyec.jpeg", "https://files.catbox.moe/tvhggh.jpeg", "https://files.catbox.moe/6m7yfc.jpeg",
+            "https://files.catbox.moe/nzlezq.jpeg", "https://files.catbox.moe/g4mfrb.jpeg", "https://files.catbox.moe/mucl9n.jpeg",
+            "https://files.catbox.moe/tfm3ie.jpeg", "https://files.catbox.moe/03t3ec.jpeg", "https://files.catbox.moe/n9gweb.jpeg",
+            "https://files.catbox.moe/vjlpjz.jpeg", "https://files.catbox.moe/i98znw.jpeg", "https://files.catbox.moe/ifmc3g.jpeg",
+            "https://files.catbox.moe/2383vg.jpeg", "https://files.catbox.moe/2dtyd4.jpeg", "https://files.catbox.moe/ljobbi.jpeg",
+            "https://files.catbox.moe/090ztn.jpeg", "https://files.catbox.moe/ab3cpy.jpeg", "https://files.catbox.moe/4jlilt.jpeg",
+            "https://files.catbox.moe/3latyf.jpeg", "https://files.catbox.moe/lsamic.jpeg", "https://files.catbox.moe/bvbmtf.jpeg",
+            "https://files.catbox.moe/1bg4fy.jpeg", "https://files.catbox.moe/ujl784.jpeg", "https://files.catbox.moe/o30abb.jpeg",
+            "https://files.catbox.moe/dam6r3.jpeg", "https://files.catbox.moe/vfrlw6.jpeg", "https://files.catbox.moe/ybmk16.jpeg",
+            "https://files.catbox.moe/wcrlos.jpeg", "https://files.catbox.moe/d31we1.jpeg", "https://files.catbox.moe/i8dht9.jpeg",
+            "https://files.catbox.moe/fburxc.jpeg", "https://files.catbox.moe/ocy59w.jpeg", "https://files.catbox.moe/cly552.jpeg",
+            "https://files.catbox.moe/r24nm5.jpeg", "https://files.catbox.moe/ho3li1.jpeg", "https://files.catbox.moe/8jck6d.mp4",
+            "https://files.catbox.moe/k0wu1c.mp4", "https://files.catbox.moe/9htsum.mp4", "https://files.catbox.moe/z48pdj.mp4",
+            "https://files.catbox.moe/72pmba.mp4", "https://files.catbox.moe/gp8bo1.mp4", "https://files.catbox.moe/onjnue.mp4",
+            "https://files.catbox.moe/4mrnm1.jpeg", "https://files.catbox.moe/bn9k86.mp4", "https://files.catbox.moe/a0kv0d.mp4",
+            "https://files.catbox.moe/ms5zeu.mp4", "https://files.catbox.moe/63pfxi.jpeg", "https://files.catbox.moe/3rnsld.jpeg",
+            "https://files.catbox.moe/dltezx.jpeg", "https://files.catbox.moe/p7pvs7.jpeg", "https://files.catbox.moe/wcvo3a.jpeg",
+            "https://files.catbox.moe/1c7bdt.jpeg", "https://files.catbox.moe/j9ntof.jpeg", "https://files.catbox.moe/7emlu5.jpeg",
+            "https://files.catbox.moe/zixeba.jpeg", "https://files.catbox.moe/bj9o2m.jpeg", "https://files.catbox.moe/3s8j2y.jpeg",
+            "https://files.catbox.moe/g1dxsd.jpeg", "https://files.catbox.moe/mo41uz.jpeg", "https://files.catbox.moe/nqmvo2.jpeg",
+            "https://files.catbox.moe/tv9r80.jpeg", "https://files.catbox.moe/hbpcrg.jpeg", "https://files.catbox.moe/uq8a33.jpeg",
+            "https://files.catbox.moe/sx8st3.jpeg", "https://files.catbox.moe/wq1nls.jpeg", "https://files.catbox.moe/i18ty3.jpeg",
+            "https://files.catbox.moe/25ggye.jpeg", "https://files.catbox.moe/e0hned.jpeg", "https://files.catbox.moe/akj5gq.jpeg",
+            "https://files.catbox.moe/k2w4gk.jpeg", "https://files.catbox.moe/dlb7py.jpeg", "https://files.catbox.moe/g58j73.jpeg",
+            "https://files.catbox.moe/f2gpcp.jpeg", "https://files.catbox.moe/pwufiq.jpeg", "https://files.catbox.moe/u0wqgk.jpeg",
+            "https://files.catbox.moe/q1l6rt.jpeg", "https://files.catbox.moe/dh5jo2.mp4", "https://files.catbox.moe/jr23zc.mp4",
+            "https://files.catbox.moe/o7qzhg.mp4", "https://files.catbox.moe/3984a0.mp4", "https://files.catbox.moe/t0mo71.mp4",
+            "https://files.catbox.moe/5q1zlm.jpeg", "https://files.catbox.moe/z5y685.jpg", "https://files.catbox.moe/2jovr3.JPG",
+            "https://files.catbox.moe/jw924c.jpeg", "https://files.catbox.moe/yq6fj3.jpeg", "https://files.catbox.moe/a9edsb.jpeg",
+            "https://files.catbox.moe/kznskt.mp4", "https://files.catbox.moe/jvqwqj.mp4", "https://files.catbox.moe/9m8c26.jpeg",
+            "https://files.catbox.moe/yfv8gs.jpeg", "https://files.catbox.moe/hk5upu.jpeg", "https://files.catbox.moe/wkoepf.mp4"
         ];
-
+        
         let currentIdx = 0;
         const itemsPerLoad = 10;
 
-        // Fungsi bantu untuk merubah link acak ke asli
-        const decodeStr = (str) => atob(str);
-
         function renderGallery() {
             const gContainer = document.getElementById('gallery-container');
-            const limit = Math.min(currentIdx + itemsPerLoad, galleryEncoded.length);
+            const limit = Math.min(currentIdx + itemsPerLoad, galleryList.length);
             
             for (let i = currentIdx; i < limit; i++) {
-                const s = decodeStr(galleryEncoded[i]);
+                const s = galleryList[i];
                 const isVid = s.toLowerCase().endsWith('.mp4');
                 const html = isVid ? 
                     `<div class="gallery-item" onclick="openMedia('${s}', true)"><video src="${s}" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;"></video><div class="play-icon-overlay"><i class="fas fa-play-circle"></i></div></div>` :
@@ -356,27 +351,32 @@ function togglePlay() {
                 gContainer.innerHTML += html;
             }
             currentIdx = limit;
-            if (currentIdx >= galleryEncoded.length) {
+            if (currentIdx >= galleryList.length) {
                 document.getElementById('loadMoreBtn').style.display = 'none';
                 document.getElementById('loadAllBtn').style.display = 'none';
             }
         }
 
+        // Fungsi Baru: Memuat SEMUA foto/video
         function renderAllGallery() {
-            const confirmation = confirm("PERINGATAN: Memuat 100+ media sekaligus dapat menghabiskan kuota data. Lanjutkan?");
+            const confirmation = confirm("PERINGATAN: Memuat 100+ media sekaligus dapat menghabiskan kuota data dan menyebabkan browser Anda melambat (lag). Lanjutkan?");
+            
             if (confirmation) {
                 const gContainer = document.getElementById('gallery-container');
-                for (let i = currentIdx; i < galleryEncoded.length; i++) {
-                    const s = decodeStr(galleryEncoded[i]);
+                const loadMoreBtn = document.getElementById('loadMoreBtn');
+                const loadAllBtn = document.getElementById('loadAllBtn');
+
+                for (let i = currentIdx; i < galleryList.length; i++) {
+                    const s = galleryList[i];
                     const isVid = s.toLowerCase().endsWith('.mp4');
                     const html = isVid ? 
                         `<div class="gallery-item" onclick="openMedia('${s}', true)"><video src="${s}" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;"></video><div class="play-icon-overlay"><i class="fas fa-play-circle"></i></div></div>` :
                         `<div class="gallery-item" onclick="openMedia('${s}', false)"><img src="${s}" loading="lazy"></div>`;
                     gContainer.innerHTML += html;
                 }
-                currentIdx = galleryEncoded.length;
-                document.getElementById('loadMoreBtn').style.display = 'none';
-                document.getElementById('loadAllBtn').style.display = 'none';
+                currentIdx = galleryList.length;
+                loadMoreBtn.style.display = 'none';
+                loadAllBtn.style.display = 'none';
             }
         }
 
@@ -396,3 +396,5 @@ function togglePlay() {
 
         window.onload = () => { type(); renderGallery(); };
     </script>
+</body>
+</html>

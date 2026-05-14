@@ -202,54 +202,25 @@
         let idx = 0;
         function type() { if(idx < text.length) { document.getElementById("typing-text").innerHTML += text.charAt(idx); idx++; setTimeout(type, 100); } }
 
-       let playStep = 0; 
-function togglePlay() { 
-    const a1 = document.getElementById("audio1"); 
-    const a2 = document.getElementById("audio2"); 
-    const a3 = document.getElementById("audio3"); 
-    const a4 = document.getElementById("audio4"); 
-    const a5 = document.getElementById("audio5"); 
-    const b = document.getElementById("playBtn");
+        let playStep = 0; 
+        function togglePlay() { 
+            const a1 = document.getElementById("audio1"); 
+            const a2 = document.getElementById("audio2"); 
+            const a3 = document.getElementById("audio3"); 
+            const a4 = document.getElementById("audio4"); 
+            const a5 = document.getElementById("audio5"); 
+            const b = document.getElementById("playBtn");
 
-    if (playStep === 0) { 
-        a1.play(); 
-        b.innerText = "Tujuh Belas"; 
-        playStep = 1; 
-    } 
-    else if (playStep === 1) { 
-        a1.pause(); a1.currentTime = 0; 
-        a2.play(); 
-        b.innerText = "Kita Ke Sana"; 
-        playStep = 2; 
-    } 
-    else if (playStep === 2) { 
-        a2.pause(); a2.currentTime = 0; 
-        a3.play(); 
-        b.innerText = "Goyang Dumang"; 
-        playStep = 3; 
-    }
-    else if (playStep === 3) { 
-        a3.pause(); a3.currentTime = 0; 
-        a4.play(); 
-        b.innerText = "See you again"; 
-        playStep = 4; 
-    }
-    else if (playStep === 4) { 
-        a4.pause(); a4.currentTime = 0; 
-        a5.play(); 
-        b.innerText = "Gk ada lagunya"; 
-        playStep = 5; 
-    }
-    else { 
-        // Bagian ini mematikan semua musik dan reset ke awal
-        a1.pause(); a2.pause(); a3.pause(); a4.pause(); a5.pause();
-        a1.currentTime = 0; a2.currentTime = 0; a3.currentTime = 0; a4.currentTime = 0; a5.currentTime = 0;
-        b.innerText = "PLAY MUSIC"; 
-        playStep = 0; 
-    }
-}
+            if (playStep === 0) { a1.play(); b.innerText = "Tujuh Belas"; playStep = 1; } 
+            else if (playStep === 1) { a1.pause(); a1.currentTime = 0; a2.play(); b.innerText = "Kita Ke Sana"; playStep = 2; } 
+            else if (playStep === 2) { a2.pause(); a2.currentTime = 0; a3.play(); b.innerText = "Goyang Dumang"; playStep = 3; }
+            else if (playStep === 3) { a3.pause(); a3.currentTime = 0; a4.play(); b.innerText = "See you again"; playStep = 4; }
+            else if (playStep === 4) { a4.pause(); a4.currentTime = 0; a5.play(); b.innerText = "Gk ada lagunya"; playStep = 5; }
+            else { a1.pause(); a2.pause(); a3.pause(); a4.pause(); a5.pause(); a1.currentTime = 0; a2.currentTime = 0; a3.currentTime = 0; a4.currentTime = 0; a5.currentTime = 0; b.innerText = "PLAY MUSIC"; playStep = 0; }
+        }
+
         const classMembers = [
-            { name: "Ainayya Salsabila", ig: "ainayya.salsabila8", photo: "" },
+            { name: "Ainayya Salsabila", ig: "ainayya.salsabila8", photo: "https://lh3.googleusercontent.com/d/1EXhHTw5TAmqOW6_zzEeXpCXaWfRY3Km8" },
             { name: "Alvin Rauf Sandi", ig: "", photo: "" },
             { name: "Amirah Aqila", ig: "thyvmirra", photo: "" },
             { name: "Angel Hutagalung", ig: "angellhutagalung", photo: "" },
@@ -293,50 +264,216 @@ function togglePlay() {
                 </div>`;
         });
 
-        const galleryList = [
-            "https://files.catbox.moe/ijdltk.jp", "https://files.catbox.moe/z7u8ue.jpeg", "https://files.catbox.moe/ani541.jpeg",
-            "https://files.catbox.moe/dfqiya.jpeg", "https://files.catbox.moe/q37v55.jpeg", "https://files.catbox.moe/94rfsc.jpeg",
-            "https://files.catbox.moe/jf33jq.jpeg", "https://files.catbox.moe/jxp3jc.jpeg", "https://files.catbox.moe/hp7i1z.jpeg",
-            "https://files.catbox.moe/pjdpja.jpeg", "https://files.catbox.moe/cokyvw.jpeg", "https://files.catbox.moe/j4sfed.jpeg",
-            "https://files.catbox.moe/p7dlef.jpeg", "https://files.catbox.moe/udv48t.jpeg", "https://files.catbox.moe/1a9f8z.jpeg",
-            "https://files.catbox.moe/ktsmpv.jpeg", "https://files.catbox.moe/ahdx9e.jpeg", "https://files.catbox.moe/xxikix.jpeg",
-            "https://files.catbox.moe/2oralj.jpeg", "https://files.catbox.moe/ol9ibz.jpeg", "https://files.catbox.moe/vmuxf9.jpeg",
-            "https://files.catbox.moe/75cpdt.jpeg", "https://files.catbox.moe/8tz381.jpeg", "https://files.catbox.moe/86xwe1.jpeg",
-            "https://files.catbox.moe/urmyec.jpeg", "https://files.catbox.moe/tvhggh.jpeg", "https://files.catbox.moe/6m7yfc.jpeg",
-            "https://files.catbox.moe/nzlezq.jpeg", "https://files.catbox.moe/g4mfrb.jpeg", "https://files.catbox.moe/mucl9n.jpeg",
-            "https://files.catbox.moe/tfm3ie.jpeg", "https://files.catbox.moe/03t3ec.jpeg", "https://files.catbox.moe/n9gweb.jpeg",
-            "https://files.catbox.moe/vjlpjz.jpeg", "https://files.catbox.moe/i98znw.jpeg", "https://files.catbox.moe/ifmc3g.jpeg",
-            "https://files.catbox.moe/2383vg.jpeg", "https://files.catbox.moe/2dtyd4.jpeg", "https://files.catbox.moe/ljobbi.jpeg",
-            "https://files.catbox.moe/090ztn.jpeg", "https://files.catbox.moe/ab3cpy.jpeg", "https://files.catbox.moe/4jlilt.jpeg",
-            "https://files.catbox.moe/3latyf.jpeg", "https://files.catbox.moe/lsamic.jpeg", "https://files.catbox.moe/bvbmtf.jpeg",
-            "https://files.catbox.moe/1bg4fy.jpeg", "https://files.catbox.moe/ujl784.jpeg", "https://files.catbox.moe/o30abb.jpeg",
-            "https://files.catbox.moe/dam6r3.jpeg", "https://files.catbox.moe/vfrlw6.jpeg", "https://files.catbox.moe/ybmk16.jpeg",
-            "https://files.catbox.moe/wcrlos.jpeg", "https://files.catbox.moe/d31we1.jpeg", "https://files.catbox.moe/i8dht9.jpeg",
-            "https://files.catbox.moe/fburxc.jpeg", "https://files.catbox.moe/ocy59w.jpeg", "https://files.catbox.moe/cly552.jpeg",
-            "https://files.catbox.moe/r24nm5.jpeg", "https://files.catbox.moe/ho3li1.jpeg", "https://files.catbox.moe/8jck6d.mp4",
-            "https://files.catbox.moe/k0wu1c.mp4", "https://files.catbox.moe/9htsum.mp4", "https://files.catbox.moe/z48pdj.mp4",
-            "https://files.catbox.moe/72pmba.mp4", "https://files.catbox.moe/gp8bo1.mp4", "https://files.catbox.moe/onjnue.mp4",
-            "https://files.catbox.moe/4mrnm1.jpeg", "https://files.catbox.moe/bn9k86.mp4", "https://files.catbox.moe/a0kv0d.mp4",
-            "https://files.catbox.moe/ms5zeu.mp4", "https://files.catbox.moe/63pfxi.jpeg", "https://files.catbox.moe/3rnsld.jpeg",
-            "https://files.catbox.moe/dltezx.jpeg", "https://files.catbox.moe/p7pvs7.jpeg", "https://files.catbox.moe/wcvo3a.jpeg",
-            "https://files.catbox.moe/1c7bdt.jpeg", "https://files.catbox.moe/j9ntof.jpeg", "https://files.catbox.moe/7emlu5.jpeg",
-            "https://files.catbox.moe/zixeba.jpeg", "https://files.catbox.moe/bj9o2m.jpeg", "https://files.catbox.moe/3s8j2y.jpeg",
-            "https://files.catbox.moe/g1dxsd.jpeg", "https://files.catbox.moe/mo41uz.jpeg", "https://files.catbox.moe/nqmvo2.jpeg",
-            "https://files.catbox.moe/tv9r80.jpeg", "https://files.catbox.moe/hbpcrg.jpeg", "https://files.catbox.moe/uq8a33.jpeg",
-            "https://files.catbox.moe/sx8st3.jpeg", "https://files.catbox.moe/wq1nls.jpeg", "https://files.catbox.moe/i18ty3.jpeg",
-            "https://files.catbox.moe/25ggye.jpeg", "https://files.catbox.moe/e0hned.jpeg", "https://files.catbox.moe/akj5gq.jpeg",
-            "https://files.catbox.moe/k2w4gk.jpeg", "https://files.catbox.moe/dlb7py.jpeg", "https://files.catbox.moe/g58j73.jpeg",
-            "https://files.catbox.moe/f2gpcp.jpeg", "https://files.catbox.moe/pwufiq.jpeg", "https://files.catbox.moe/u0wqgk.jpeg",
-            "https://files.catbox.moe/q1l6rt.jpeg", "https://files.catbox.moe/dh5jo2.mp4", "https://files.catbox.moe/jr23zc.mp4",
-            "https://files.catbox.moe/o7qzhg.mp4", "https://files.catbox.moe/3984a0.mp4", "https://files.catbox.moe/t0mo71.mp4",
-            "https://files.catbox.moe/5q1zlm.jpeg", "https://files.catbox.moe/z5y685.jpg", "https://files.catbox.moe/2jovr3.JPG",
-            "https://files.catbox.moe/jw924c.jpeg", "https://files.catbox.moe/yq6fj3.jpeg", "https://files.catbox.moe/a9edsb.jpeg",
-            "https://files.catbox.moe/kznskt.mp4", "https://files.catbox.moe/jvqwqj.mp4", "https://files.catbox.moe/9m8c26.jpeg",
-            "https://files.catbox.moe/yfv8gs.jpeg", "https://files.catbox.moe/hk5upu.jpeg", "https://files.catbox.moe/wkoepf.mp4"
-        ];
-        
+        // MASUKKAN SEMUA LINK DRIVE ANDA DI SINI
+const galleryList = [
+    "https://lh3.googleusercontent.com/d/1ZX945VBfICyVd35SHrlAXt1KMDvt_-Ic",
+    "https://lh3.googleusercontent.com/d/1ComMqgjqGYWQI9_JX2CV1992pUYY8BBY",
+    "https://lh3.googleusercontent.com/d/1GK4nAHsxENmvmUm3H--chOoI6iwYU-L6",
+    "https://lh3.googleusercontent.com/d/1HVNbUFLmGW_nGPVmrBTBZU_r6cfX5nNZ",
+    "https://lh3.googleusercontent.com/d/1cRqIucPDR3zX7t7B5_5owtUevyfR4PDz",
+    "https://lh3.googleusercontent.com/d/1JOeTiEouTP4V3t87jk7Pc4aLIlktekF7",
+    "https://lh3.googleusercontent.com/d/1ezutUMFlG2hUQpnPmnGw49N3c2Uh6eK1",
+    "https://lh3.googleusercontent.com/d/1xEDCHftSKU7_dKjFZ4i29906oG5b-cVq",
+    "https://lh3.googleusercontent.com/d/1gpBEAEHtI96wnYG9t_UzJUbSDoE-OAmz",
+    "https://lh3.googleusercontent.com/d/10MHy1Yjl8JAm8CFQW-X6A3z7OQmZkBEE",
+    "https://lh3.googleusercontent.com/d/1yqJzl_DL2YwtxFtfedUqkE12KEMcz5cr",
+    "https://lh3.googleusercontent.com/d/1AuifrO_H49dy9TKT4YbWTM0iHDgr9LfL",
+    "https://lh3.googleusercontent.com/d/1b8IHA7VmQrzf_IoQ2tTIJxGg92eQ-s6m",
+    "https://lh3.googleusercontent.com/d/1BoZrbw1ZyIVwkLVXlklD96Akj5b118UV",
+    "https://lh3.googleusercontent.com/d/1soTAZAQd8MNaxevadXOXltWsbBQXRsUB",
+    "https://lh3.googleusercontent.com/d/1DeOb1sGipvdG15G1F4hIYI6O7EPdti7r",
+    "https://lh3.googleusercontent.com/d/14iAMTb-gYBkSgedMy6jMlYC4-TY35swn",
+    "https://lh3.googleusercontent.com/d/1_xwM5yjMV0e02ocnQSlm5vyLLnufjSU6",
+    "https://lh3.googleusercontent.com/d/1JrHbmVqHvYkJ43aKKwWkhdxdBOjzfnLp",
+    "https://lh3.googleusercontent.com/d/1yeij5IP6rvkS8Ok8xN8GrjxrfRaxW43M",
+    "https://lh3.googleusercontent.com/d/1-MrsmE1aVhkaDLMPZ4usOaSiw1lkY-Rb",
+    "https://lh3.googleusercontent.com/d/1rU0zMOPrNvaVDeMjKdagdSldpSxQ0e6k",
+    "https://lh3.googleusercontent.com/d/1Rtu1TemTOzVtRDVBIMFFsKJrS0TwOUts",
+    "https://lh3.googleusercontent.com/d/1sCyF4L-gEVIlozZ4qi0j0BncN98AVIRz",
+    "https://lh3.googleusercontent.com/d/1T4TCKh_CA_nRuYJ2VMb4sQrZnbVp3le5",
+    "https://lh3.googleusercontent.com/d/19JSRi5wMDdVDw5UyII8Btub84FvA_Dyn",
+    "https://lh3.googleusercontent.com/d/19XGocSlXouP95ZksscFW45nVqFDT076v",
+    "https://lh3.googleusercontent.com/d/1W2C87qiNNzMrGZatrYEiU2rKFmfLaaYS",
+    "https://lh3.googleusercontent.com/d/12B6mUO1KkM6eohYjQPEpM5o3hlCNAGkW",
+    "https://lh3.googleusercontent.com/d/1y8s_sNQBGKdbTUkyDnImvzB5cc9yLLej",
+    "https://lh3.googleusercontent.com/d/1Ep9gA4vjrhFRA_uiDVnzbUMHSSd9DC5q",
+    "https://lh3.googleusercontent.com/d/1JUZWqYS1M5jbmaefCzALUKgLHoKazNui",
+    "https://lh3.googleusercontent.com/d/1upoZ7Tx8dHcpPlY9vfjxtdUuT4GXV_8D",
+    "https://lh3.googleusercontent.com/d/1PjF3RC8vA5xw4qL5Bx8fVjo5c2C7ZTzY",
+    "https://lh3.googleusercontent.com/d/15OZxvSKcPZwqeBNTV-7e12vT87UN_gEJ",
+    "https://lh3.googleusercontent.com/d/1n1-ukmycAoNVOb9p9zyvu5YHADdlEdjl",
+    "https://lh3.googleusercontent.com/d/1Jckir03e5guA0RrOz6XmbJHFnN9Jb6Ou",
+    "https://lh3.googleusercontent.com/d/1R2xD4_2qCF9MuafznOXkxS3WBEQdF3oX",
+    "https://lh3.googleusercontent.com/d/18mjxt5bYUiW2YwtyVU0VMKatGGytnWhn",
+    "https://lh3.googleusercontent.com/d/1q2zYTe3Xv1QpeuxCWzdfC5krixz3j7DI",
+    "https://lh3.googleusercontent.com/d/1QRHXozGVw8RyDHNTgp3er_-yPItICVMX",
+    "https://lh3.googleusercontent.com/d/1NRYP9VkVjmHVmCDASkcJoXIVcuCIUNaP",
+    "https://lh3.googleusercontent.com/d/1cOQ6UDv2VERJ_QKY0BeVuCG1T_DBlLi",
+    "https://lh3.googleusercontent.com/d/1bUoz19EmqM_Iyxi-d16SAARGI9XyTYDt",
+    "https://lh3.googleusercontent.com/d/1iYBCyo4kv-TVv62loigoohBAWFYsMCt3",
+    "https://lh3.googleusercontent.com/d/1s6zWhNQBZe6Anh-Z0fBSCyxHKM_wT4_n",
+    "https://lh3.googleusercontent.com/d/1ec-xEAjw-dpYx1SnZCx0MYkLG6AucgYU",
+    "https://lh3.googleusercontent.com/d/1r09AXlFTzHpuClgzJHjkptiW1uhU6gte",
+    "https://lh3.googleusercontent.com/d/13HqGwKHTHaFG13vKZN5orbWX87iWxeLt",
+    "https://lh3.googleusercontent.com/d/1MswVfiQiTqlke3TvG4_sBr4IVPwuE6Wd",
+    "https://lh3.googleusercontent.com/d/1GI3PmRw8oCAI9wkzH9jfYZU1OjTbqSId",
+    "https://lh3.googleusercontent.com/d/1jP23bKhZlN5fNM5o4PA8f8DH-ohfFBNw",
+    "https://lh3.googleusercontent.com/d/1vUBN6QL3Jvl-yPeZKTwv4Jp-sLBuc0p9",
+    "https://lh3.googleusercontent.com/d/1MPuND8Y7DB5f9iGi6aud-LpzjIoceLr5",
+    "https://lh3.googleusercontent.com/d/10NjAayGjNmHp4qwjYqygUA202gsARF-Y",
+    "https://lh3.googleusercontent.com/d/1UtpQJ5JGmMn7doN7IUG2xjaupys1X784",
+    "https://lh3.googleusercontent.com/d/1lO9l2pbPLceS4RVkjP5PKxQDcqnRdKEH",
+    "https://lh3.googleusercontent.com/d/1Bmx4CtIp3uDT-0vf0eVpCDoNvoQSxqYl",
+    "https://lh3.googleusercontent.com/d/1Yppp2KPqGiiAjJRjhDlGI-vc8EvB4KZN",
+    "https://lh3.googleusercontent.com/d/1n0gyTCutH2AfriOtzLIpUS4L9dVwz-ic",
+    "https://lh3.googleusercontent.com/d/1BdU60e_Mm4vjtM2VQwfsP1EEZKplg7y9",
+    "https://lh3.googleusercontent.com/d/1W9_waXQc3wVbyJ2TOUrHEIrNMB5vywYF",
+    "https://lh3.googleusercontent.com/d/12cD8Q62aDZtd_dSdlZBkaY_bas2Ua5aI",
+    "https://lh3.googleusercontent.com/d/1qhYsoWmXZYPa3OIcp_WhySg-sEfwui_R",
+    "https://lh3.googleusercontent.com/d/1KlcyY40LiyARMO3sm4sAmLA7xpXVgBUJ",
+    "https://lh3.googleusercontent.com/d/1eGBr0wRQeN2RVTkVIIhslkoHLRcR2vIP",
+    "https://lh3.googleusercontent.com/d/1vOCY3d9cJJ-v5nbPsKwqdVgOj78Y68wB",
+    "https://lh3.googleusercontent.com/d/1g7jrvWxFWVvfKK2FNgB21Z2bK3rUHxV2",
+    "https://lh3.googleusercontent.com/d/1-WzOstdTnRzht-idk_wk9CSEuFnxPRCQ",
+    "https://lh3.googleusercontent.com/d/1gPxRJUbWIMJ6sNfczZ-pb3akot1RMMj7",
+    "https://lh3.googleusercontent.com/d/1ziBLxsTAWMjuy8T65XMeZSILkXqQqipJ",
+    "https://lh3.googleusercontent.com/d/18zteLobDHcoO8SXIVN02gpvjjOhHQ639",
+    "https://lh3.googleusercontent.com/d/1HX4hAhZ0cB28Bndog2FC3s807jdPji0o",
+    "https://lh3.googleusercontent.com/d/17p1-7H07SGnK_tTdXOYCu0njIVWJeeGA",
+    "https://lh3.googleusercontent.com/d/1oeXnPeiVi1khL3DSR-D_3SKI9yDiUyci",
+    "https://lh3.googleusercontent.com/d/1vX_l1ZBAzmdPWmNrb43SD7MojDrRVw_h",
+    "https://lh3.googleusercontent.com/d/1qcVYAyMi_KAyxY3JLc5oAAJ6Y8p2ijAZ",
+    "https://lh3.googleusercontent.com/d/1Xik8ijs8qwk2JvBvCAUkahgb5eZANg94",
+    "https://lh3.googleusercontent.com/d/1BfWpaBlvrvwLW_wd9-HQ0zVTKXcDjcfz",
+    "https://lh3.googleusercontent.com/d/1gyxTlHsARM-bUigLTZ5ccNHUn1QnF0ke",
+    "https://lh3.googleusercontent.com/d/1f6eSTpJraX32ec45J6FTwpK-XfeRMwmj",
+    "https://lh3.googleusercontent.com/d/1pcrMyMaEe4ylTyqmqoQc3T6VxVcrOBXg",
+    "https://lh3.googleusercontent.com/d/1ivUCaz3xDoXvzzxboVD61faRHm35xysN",
+    "https://lh3.googleusercontent.com/d/1qoF7FzYTxIKGFlCfR2E0acc0Lfxr0n75",
+    "https://lh3.googleusercontent.com/d/1g5iHOboHSgk2R2PdRtQd_h9Z77Ev2zDc",
+    "https://lh3.googleusercontent.com/d/1_bHkvLKDsESftA6hPmpIfPklpWzSU-cu",
+    "https://lh3.googleusercontent.com/d/1WvulXToslukXxlmqNDWNb_Dc3RQr-pET",
+    "https://lh3.googleusercontent.com/d/1YxkwWkUAavIZna-Zg34d6lruMNDPLhVm",
+    "https://lh3.googleusercontent.com/d/1niqMGwoGvVuNI-OZ-oFA7Py53Qh8gx88",
+    "https://lh3.googleusercontent.com/d/1o7I78fx1f9CH-Z9CVVCSmVfeKaN_snfB",
+    "https://lh3.googleusercontent.com/d/1mFlJpG6cMzswZLEof0-ih3NtISh6tkGi",
+    "https://lh3.googleusercontent.com/d/1Gpc7U0zbZKP9k_07R_oVdYFRmfPTxz0Z",
+    "https://lh3.googleusercontent.com/d/1ARbssS94LVVLzt1NnY262yjjyTItfmUO",
+    "https://lh3.googleusercontent.com/d/1OjkEcoDLGqkhKe1ln7nv8hoxwyvtpAWj",
+    "https://lh3.googleusercontent.com/d/11ye8w1_zUQMWLPQdM4rNE7WB3o6p7wb6",
+    "https://lh3.googleusercontent.com/d/1IiNJixArA8613uxzRnUso-_RHj9OrSag",
+    "https://lh3.googleusercontent.com/d/1IXjtd-YyaoK9hspMjIe3MxhmZFzZ5qn8",
+    "https://lh3.googleusercontent.com/d/1iTlj9LM-LYjM7BlEnTF-EimCeKpbEQcp",
+    "https://lh3.googleusercontent.com/d/1NNia9CSfjhHTd3xvhgZsrVWJ-OZIyNT8",
+    "https://lh3.googleusercontent.com/d/1QRoOrYkQfmqis_3_wBeU9KXIVdqvOT1x",
+    "https://lh3.googleusercontent.com/d/1wA9QU2SVcTRUx6EV2hv74nUucVB4B2Im",
+    "https://lh3.googleusercontent.com/d/1wzNKdAvq_gWKLBn99NiGwz3omeE0BWiC",
+    "https://lh3.googleusercontent.com/d/14FL7kDhQzi0qGjJr7vzrz1F1ixqlNT7K",
+    "https://lh3.googleusercontent.com/d/1IlZYdbEAF33C-_8J36C1wQplfuWZXNBH",
+    "https://lh3.googleusercontent.com/d/1fxkxpgeG41uhysFVz_nazDG6mIiPX1ht",
+    "https://lh3.googleusercontent.com/d/1f8Vxd2w26KUa_4mLc39EmFUMztiSnDj9",
+    "https://lh3.googleusercontent.com/d/1zBrDh9k8hMYXV7_wT1-UpyZPUGmDuGWV",
+    "https://lh3.googleusercontent.com/d/1BNxLyj_tHJXqWDg8ibP5sgIsmi8Tlaub",
+    "https://lh3.googleusercontent.com/d/1ne9s-m9KAlhNfjjpIWKOOAxcJIgTPZ3w",
+    "https://lh3.googleusercontent.com/d/1Drnca9rToTkwmKmBJqB8GwYDjNEQsChL",
+    "https://lh3.googleusercontent.com/d/1RRnrMMjeQHY7AF8R-vUgTdkIVaB3t8BA",
+    "https://lh3.googleusercontent.com/d/1PKD_3djqTrGGy-L39yoigyZO7aUTwj0S",
+    "https://lh3.googleusercontent.com/d/1rOObXPe-Sddp0sirEsf8fa6RKZOR80Wj",
+    "https://lh3.googleusercontent.com/d/1Uo7hGVVUHQRGJARFnO4Rc6Jhelb5Uy3i",
+    "https://lh3.googleusercontent.com/d/1tdGnYA2TZ7gOHV1C46-QdFG1-es0lskw",
+    "https://lh3.googleusercontent.com/d/1PngSdEgbio_P9Anw5wlNYXgMbKGsxNLq",
+    "https://lh3.googleusercontent.com/d/1z5bSGhGI-2G-M-Xe1mNbQNv8_6nS0pPi",
+    "https://lh3.googleusercontent.com/d/1MbO7L1-8HAcIPkMJfGROUCro10UyP2ei",
+    "https://lh3.googleusercontent.com/d/1G6x2Hdyi9WBSJd44VC-JHb95zjX0njKc",
+    "https://lh3.googleusercontent.com/d/1elqP7ywpj2mUrvsnW99n2EwGV_YhDFwh",
+    "https://lh3.googleusercontent.com/d/1C3oVWJvUBSklxpNNZwCWNxO5aQiuI0GN",
+    "https://lh3.googleusercontent.com/d/1fynfmedXacyHdEk2AT9ziRpcIbLxSHH3",
+    "https://lh3.googleusercontent.com/d/1xhfifUBifZUt8bWQHYSpIw81sJGtpFIz",
+    "https://lh3.googleusercontent.com/d/1W1o4Pa_P_32inidyMDJW6EMfqVq8WSpz",
+    "https://lh3.googleusercontent.com/d/1283TkldN2BHIK4jw221-rdbdPvD0SfrA",
+    "https://lh3.googleusercontent.com/d/1BQ8uegIw1u7m6dYUJz1roVjwS84eToKD",
+    "https://lh3.googleusercontent.com/d/1t9prVWu34eAL-IjBRAABL_tbQXnDWCVF",
+    "https://lh3.googleusercontent.com/d/1MKFhm_6S6PsXomQJoPOdN8NO2_go_NNp",
+    "https://lh3.googleusercontent.com/d/1YW4-q13wa7o72fhtyDy31uLosxDSAo0w",
+    "https://lh3.googleusercontent.com/d/1ND7fiZ1DySyD5szcK232f7NasA71czWd",
+    "https://lh3.googleusercontent.com/d/1RbJlCHcEveZPe_EgpezyFxBYDxBDjEMW",
+    "https://lh3.googleusercontent.com/d/1SQDsNW6X4_5vULCOYfN5pbodPbrulpYs",
+    "https://lh3.googleusercontent.com/d/1NWNsEVHBVnU0Gj_WEsCNHSJd-Tvb1YE5",
+    "https://lh3.googleusercontent.com/d/17kVpPwSFAghA5HGCZiOBKSnNq43iPavk",
+    "https://lh3.googleusercontent.com/d/1PeRJ60qlL0rLfNbQGBgXqGyv61uq3bW7",
+    "https://lh3.googleusercontent.com/d/1O42zwAaTnWQk2ykNfChNn2ZC0ZDTE4f-",
+    "https://lh3.googleusercontent.com/d/18-bAo7qjURDzOm4JnBXUqBYPB9o7oAO0",
+    "https://lh3.googleusercontent.com/d/1HygeiBAm7Dn9runm3kkiPVnxLRwj5vmj",
+    "https://lh3.googleusercontent.com/d/1FT3t3_I_3N_rNL8Dxmc921i1Rzxe89bW",
+    "https://lh3.googleusercontent.com/d/1037zWbO0ycsf8uElQHzcalntHd5LOflh",
+    "https://lh3.googleusercontent.com/d/1zJv1QVQrSixwYLZh7Ov2sO54nlsoIo4s",
+    "https://lh3.googleusercontent.com/d/1aeLOKSLShzIxTQ_prWnX9X_byIgAwAb5",
+    "https://lh3.googleusercontent.com/d/1ARoTja5CJCwDqeDAdxOXESW0zVADKIUl",
+    "https://lh3.googleusercontent.com/d/19X2Ms-kvvHBRQWVXXeK21oAJRR1d2NK_",
+    "https://lh3.googleusercontent.com/d/1JzoQ4BGuX_EBDbiopLZdB07hBOVjxm5f",
+    "https://lh3.googleusercontent.com/d/126mVrjfPRUWY8T8fruvmYpISy8FKIK4k",
+    "https://lh3.googleusercontent.com/d/1D77nBtVwMvJXxmDJIKSxiSyGyFAi3siK",
+    "https://lh3.googleusercontent.com/d/1fA_BUoEwDvhsb4VaJnCk2gQA7KeLq9j3",
+    "https://lh3.googleusercontent.com/d/1k672G5TBev25l41ymiGn7OkUtw2CE3qT",
+    "https://lh3.googleusercontent.com/d/1VHy0A6JNqt6a82yboh61cnxd85BTpQ6n",
+    "https://lh3.googleusercontent.com/d/1oEfAdvz_Taatq1q_TjTeV6ABjNXRkgew",
+    "https://lh3.googleusercontent.com/d/1wpXKJsKlXkj3d7vbGK-OvSq0KTgTnqMM",
+    "https://lh3.googleusercontent.com/d/1N2KY3Wi7D_I8dTRzLYl8_dcnMDmZHW1p",
+    "https://lh3.googleusercontent.com/d/1cU_ZCZqko_6LeTMNSVgTkjXhT-gYU6uB",
+    "https://lh3.googleusercontent.com/d/10iYn4wPZm2RURbvXjWHxKtHvgvyzDO6g",
+    "https://lh3.googleusercontent.com/d/11mCZ_gt6GDXIzQ9F7nHN0dbqBpzUuVOf",
+    "https://lh3.googleusercontent.com/d/1gw1e5RwrbTh3d3cllnHbZK8ySTQuk7k-",
+    "https://lh3.googleusercontent.com/d/1BlTiyJn8Myki9UWEFNWH0TZuvm01wFYn",
+    "https://lh3.googleusercontent.com/d/1WWNNdIkrR_k3f9eZ64GX20XzfbbyhPTP",
+    "https://lh3.googleusercontent.com/d/1pBvvUDFvh8F13To9VKGbQU3xdA4ABqYa",
+    "https://lh3.googleusercontent.com/d/1m6AoWSYTdjL9G2dk3-7MjVdQwDSYA5Ln",
+    "https://lh3.googleusercontent.com/d/1gfpVdMm5fGIf_Lb0xN1tQjc7owy7xInb",
+    "https://lh3.googleusercontent.com/d/1WEVSCDe-mkD6oa-7PZIyGvsmvZut1F7h",
+    "https://lh3.googleusercontent.com/d/1Mvbeq9iW-FZNE1v5BEviegClUPmFtf9U",
+    "https://lh3.googleusercontent.com/d/1udvxhyWPYDJ7JhOjK4_8Io438sLtDZ23",
+    "https://lh3.googleusercontent.com/d/17iAhudgddhraDwvGN6F8V1DCErF4rEc8",
+    "https://lh3.googleusercontent.com/d/1ci7twWk242HJTkW2yAamHF6ZMzvrP56a",
+    "https://lh3.googleusercontent.com/d/1tTjpY7Zla4yvgra-ugp77B1s-Ta4oVGP",
+    "https://lh3.googleusercontent.com/d/1mQ4c9AHU5HKmRwdokg94l0PXHKjE6Ft-",
+    "https://lh3.googleusercontent.com/d/1ffS8NduiztrhHhx0GNk1sr3Wm9ZLTuRC",
+    "https://lh3.googleusercontent.com/d/1yS1VKR3S15X0w4ZmIOYs1WUfcEeq1ccD",
+    "https://lh3.googleusercontent.com/d/17ojtW_CrDx4Q_xknbp8lEEVH6f3QRmU1",
+    "https://lh3.googleusercontent.com/d/1RimsS5SudWSfgMP7mQ6SUQYzzNT5D_2j",
+    "https://lh3.googleusercontent.com/d/1QJ6Gu-PI-zJ4K6fbqJjCvr1i2Uj-IUzn",
+    "https://lh3.googleusercontent.com/d/19iiAeuodaupZimnldzkOcdMC3ah2jzll",
+    "https://lh3.googleusercontent.com/d/176-p3GfA9qVrCUSpkBsH2xehrQtFH0EP",
+    "https://lh3.googleusercontent.com/d/14r4-VCf-lZnotR2L0V1xQXo61Dd0ut17",
+    "https://lh3.googleusercontent.com/d/1k5iEA01B424roOH9492-uIcfJ73y1FEN",
+    "https://lh3.googleusercontent.com/d/1sde8__ZNdnDDVwr7LgMY2YS0HcQf5nA_",
+    "https://lh3.googleusercontent.com/d/1AQCxmiQzgd6wdWfFcZyUlET5S7n2Rf61",
+    "https://lh3.googleusercontent.com/d/16roY8peI9toViaWAn1RQcexqKFI5dmn5",
+    "https://lh3.googleusercontent.com/d/11YzNfpRsRQBrJhLDFfzczJJ0_W6Kpt_a",
+    "https://lh3.googleusercontent.com/d/1VHsCGK0tUM_pd6E48i8nsnpygRPIApv8",
+    "https://lh3.googleusercontent.com/d/10tbSzBtis7C57mHmqZrIfIMG8AOgxeBv",
+    "https://lh3.googleusercontent.com/d/1959LkMsSHosRGJfWuwaJbyIJA5yEGx-N",
+    "https://lh3.googleusercontent.com/d/17lsVsHbwTaG90H1sbcflUc3gFHZ_TunP",
+    "https://lh3.googleusercontent.com/d/15TtMv8IMW51Z6vKvh6ochiTZqBY1mVIU",
+    "https://lh3.googleusercontent.com/d/1dxKd5e64zUj5ysRDhklq5IbUedhNevS_",
+    "https://lh3.googleusercontent.com/d/12bFxKMRe51lAy2NrELMb2LV5zM-ByFbw",
+    "https://lh3.googleusercontent.com/d/1P6sZauQtOWV2HlseyY2fH3SMYOLBxjLO",
+    "https://lh3.googleusercontent.com/d/14YqgHOarNbEkQ6rZeAZcsRNjtZ4BZRJG",
+    "https://lh3.googleusercontent.com/d/1ZoNGGKFoYPOP9rlNWsr8jVQJmZdH6rmF",
+    "https://lh3.googleusercontent.com/d/1ptPdNsZZMkW0gtqGiztXYWaSBVrp3iPO",
+    "https://lh3.googleusercontent.com/d/1w53T6Cw1AIuGWWYWyqeSZNDn9wwGd5Ut",
+    "https://lh3.googleusercontent.com/d/1KCK89mH894CXrQWmhp4ctEKdG0ZttueP",
+    "https://lh3.googleusercontent.com/d/1RG_TMLfUPAhRoJAkWzGMdtWfwlTdaHkt",
+    "https://lh3.googleusercontent.com/d/1S3-4vatjiWU9PNYXxfDVhSMDWEo697em",
+    "https://lh3.googleusercontent.com/d/1tVek0NAsN8QNYd3H_2RD9E6PbOaCi_CD",
+    "https://lh3.googleusercontent.com/d/1CWlrCu6p7X-iISYVvqpf77CbwT8XrRjq",
+    "https://lh3.googleusercontent.com/d/1dr3j4nKOmLjxhDT1zcx5w8_Bih4j1BQr"
+];
         let currentIdx = 0;
         const itemsPerLoad = 10;
+
+        // Fungsi pembantu untuk cek apakah link adalah video atau Google Drive
+        function checkIsVid(url) {
+            return url.toLowerCase().endsWith('.mp4') || (url.includes('drive.google.com') && !url.includes('googleusercontent'));
+        }
 
         function renderGallery() {
             const gContainer = document.getElementById('gallery-container');
@@ -344,9 +481,14 @@ function togglePlay() {
             
             for (let i = currentIdx; i < limit; i++) {
                 const s = galleryList[i];
-                const isVid = s.toLowerCase().endsWith('.mp4');
+                const isVid = checkIsVid(s);
                 const html = isVid ? 
-                    `<div class="gallery-item" onclick="openMedia('${s}', true)"><video src="${s}" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;"></video><div class="play-icon-overlay"><i class="fas fa-play-circle"></i></div></div>` :
+                    `<div class="gallery-item" onclick="openMedia('${s}', true)">
+                        <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#222;">
+                            <i class="fas fa-play-circle" style="color:white; font-size:3rem; opacity:0.5;"></i>
+                        </div>
+                        <div class="play-icon-overlay"><i class="fas fa-play-circle"></i></div>
+                    </div>` :
                     `<div class="gallery-item" onclick="openMedia('${s}', false)"><img src="${s}" loading="lazy"></div>`;
                 gContainer.innerHTML += html;
             }
@@ -357,26 +499,20 @@ function togglePlay() {
             }
         }
 
-        // Fungsi Baru: Memuat SEMUA foto/video
         function renderAllGallery() {
-            const confirmation = confirm("PERINGATAN: Memuat 100+ media sekaligus dapat menghabiskan kuota data dan menyebabkan browser Anda melambat (lag). Lanjutkan?");
-            
-            if (confirmation) {
+            if (confirm("PERINGATAN: Memuat banyak media dapat menyebabkan lag. Lanjutkan?")) {
                 const gContainer = document.getElementById('gallery-container');
-                const loadMoreBtn = document.getElementById('loadMoreBtn');
-                const loadAllBtn = document.getElementById('loadAllBtn');
-
                 for (let i = currentIdx; i < galleryList.length; i++) {
                     const s = galleryList[i];
-                    const isVid = s.toLowerCase().endsWith('.mp4');
+                    const isVid = checkIsVid(s);
                     const html = isVid ? 
-                        `<div class="gallery-item" onclick="openMedia('${s}', true)"><video src="${s}" muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;"></video><div class="play-icon-overlay"><i class="fas fa-play-circle"></i></div></div>` :
+                        `<div class="gallery-item" onclick="openMedia('${s}', true)"><div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#222;"><i class="fas fa-play-circle" style="color:white; font-size:3rem; opacity:0.5;"></i></div><div class="play-icon-overlay"><i class="fas fa-play-circle"></i></div></div>` :
                         `<div class="gallery-item" onclick="openMedia('${s}', false)"><img src="${s}" loading="lazy"></div>`;
                     gContainer.innerHTML += html;
                 }
                 currentIdx = galleryList.length;
-                loadMoreBtn.style.display = 'none';
-                loadAllBtn.style.display = 'none';
+                document.getElementById('loadMoreBtn').style.display = 'none';
+                document.getElementById('loadAllBtn').style.display = 'none';
             }
         }
 
@@ -384,17 +520,26 @@ function togglePlay() {
             const modal = document.getElementById("photoModal");
             const wrapper = document.getElementById("modalContent");
             modal.style.display = "flex";
-            wrapper.innerHTML = isVid ? `<video src="${src}" id="fullVideo" controls autoplay></video>` : `<img src="${src}" id="imgFull">`;
+
+            if (isVid) {
+                if (src.includes('drive.google.com')) {
+                    // Konversi link Drive ke preview agar bisa diputar
+                    let fileId = src.split('/d/')[1].split('/')[0];
+                    wrapper.innerHTML = `<iframe src="https://drive.google.com/file/d/${fileId}/preview" width="100%" height="500px" style="border:none;" allow="autoplay"></iframe>`;
+                } else {
+                    wrapper.innerHTML = `<video src="${src}" id="fullVideo" controls autoplay style="width:100%; max-height:80vh;"></video>`;
+                }
+            } else {
+                wrapper.innerHTML = `<img src="${src}" id="imgFull" style="max-width:100%; max-height:80vh; border-radius:10px;">`;
+            }
         }
 
         function closeModal() {
             const modal = document.getElementById("photoModal");
-            const vid = document.getElementById("fullVideo");
-            if(vid) vid.pause();
+            const wrapper = document.getElementById("modalContent");
+            wrapper.innerHTML = ""; // Hapus konten agar video/iframe berhenti total
             modal.style.display = "none";
         }
 
         window.onload = () => { type(); renderGallery(); };
     </script>
-</body>
-</html>
